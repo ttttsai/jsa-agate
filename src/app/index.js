@@ -1,2 +1,2 @@
 require('./scss/styles.scss');
-console.log("askdjahkjd"); 
+console.log("Meaningful Message!!!!"); 

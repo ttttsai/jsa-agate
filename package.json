@@ -1,0 +1,38 @@
+{
+  "name": "epam-jsa-agate",
+  "version": "1.0.0",
+  "description": "EPAM-JSA-AGATE --Local Business Finder (Yelp)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build",
+    "build": "webpack -d && webpack-dev-server --content-base dist/ --inline --hot --port 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/greenfox-academy/epam-jsa-agate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.8.2"
+  },
+  "bugs": {
+    "url": "https://github.com/greenfox-academy/epam-jsa-agate/issues"
+  },
+  "homepage": "https://github.com/greenfox-academy/epam-jsa-agate#readme",
+  "dependencies": {
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2"
+  }
+}

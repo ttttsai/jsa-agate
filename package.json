@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:backend": "mocha test/mocha",
+    "test:frontend": "jest --colors",
     "lint": "eslint src"
   },
   "repository": {
@@ -21,6 +22,7 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.7.2",
+    "jest": "^21.2.0",
     "mocha": "^3.5.3",
     "node-sass": "^4.5.3",
     "sass-loader": "^6.0.6",

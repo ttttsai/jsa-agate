@@ -7,4 +7,4 @@ class ReactHeader extends React.Component {
   }
 }
 
-module.exports = ReactHeader;
+export default ReactHeader;

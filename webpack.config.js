@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist/app'),
     filename: 'bundle.js',
-    publicPath: '/app/'
+    publicPath: '/app/',
   },
   module: {
     loaders: [{
@@ -15,8 +15,8 @@ module.exports = {
       include: path.resolve(__dirname, 'src'),
       loader: 'babel-loader',
       query: {
-        presets: ['react', 'env']
-      }
+        presets: ['react', 'env'],
+      },
     },
     {
       test: /\.scss$/,
@@ -34,7 +34,7 @@ module.exports = {
           },
         ],
       }),
-    }]
+    }],
   },
   plugins: [
     new CleanWebpackPlugin([path.resolve(__dirname, './dist/app')]),

@@ -1,5 +1,5 @@
 module.exports = {
-  'extends': 'google',
+  'extends': ['eslint:recommended', 'google'],
   'parserOptions': {
     'ecmaFeatures': {
       'jsx': true,
@@ -12,6 +12,7 @@ module.exports = {
     'require-jsdoc': 0,
     'react/jsx-uses-vars': 2,
     'react/jsx-uses-react': 2,
+    'indent': [2, 2],
   },
   'plugins': [
     'react',
@@ -35,6 +36,24 @@ module.exports = {
       ],
       'env': {
         'node': true,
+      },
+    },
+    {
+      'files': ['src/client/**/*.test.js'],
+      'env': {
+        'jest': true,
+      },
+    },
+    {
+      'files': ['test/**/*.test.js'],
+      'env': {
+        'mocha': true,
+      },
+    },
+    {
+      'files': ['src/server/**/*.js'],
+      'rules': {
+        'no-console': 0,
       },
     },
   ],

@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 const okStatus = {status: 'ok', database: 'ok'};
 const errorStatus = {status: 'ok', database: 'error'};
 
-app.get('/heartbeat', function (req, res) {
+app.get('/heartbeat', function(req, res) {
   DatabaseHealth.checkDatabaseHealth((isWorking) => {
     isWorking ? res.json(okStatus) :
       res.json(errorStatus);
@@ -16,6 +16,6 @@ app.get('/heartbeat', function (req, res) {
 
 app.use(express.static(path.resolve(__dirname, '../../dist')));
 
-app.listen(PORT, function () {
+app.listen(PORT, function() {
   console.log(`app is listening on port ${PORT}`);
 });

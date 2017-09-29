@@ -1,0 +1,8 @@
+{
+  "database": {
+    "url": "mongodb://localhost",
+    "port": "12345",
+    "databaseName": "dataName",
+    "collection": "heartbeat"
+  }
+}

@@ -4,13 +4,16 @@
   "description": "EPAM-JSA-AGATE --Local Business Finder (Yelp)",
   "main": "index.js",
   "scripts": {
-    "test": "npm-run-all --parallel test:frontend test:backend",    
+    "test": "npm-run-all --parallel test:frontend test:backend",
     "test:backend": "mocha --colors",
     "test:frontend": "jest --colors",
     "lint": "eslint **/*.js --ignore-pattern node_modules/",
     "build": "webpack -p --colors --config webpack.config.js",
     "start:backend": "node ./src/server/index.js",
-    "start": "npm-run-all --sequential build start:backend"
+    "start": "npm-run-all --sequential build start:backend",
+    "heroku-prebuild": "npm install --only=dev",
+    "dev:frontend": "webpack-dev-server --colors --content-base dist/ --inline --hot --port 3000",
+    "dev:backend": "nodemon ./src/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +38,7 @@
     "jest": "^21.2.0",
     "mocha": "^3.5.3",
     "node-sass": "^4.5.3",
+    "nodemon": "^1.12.1",
     "npm-run-all": "^4.1.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",

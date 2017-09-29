@@ -4,6 +4,7 @@
   "description": "EPAM-JSA-AGATE --Local Business Finder (Yelp)",
   "main": "index.js",
   "scripts": {
+    "test": "npm-run-all --parallel test:frontend test:backend",    
     "test:backend": "mocha --colors",
     "test:frontend": "jest --colors",
     "lint": "eslint **/*.js --ignore-pattern node_modules/",

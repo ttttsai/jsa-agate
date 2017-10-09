@@ -1,6 +1,9 @@
 {
   "name": "epam-jsa-agate",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.1"
+  },
   "description": "EPAM-JSA-AGATE --Local Business Finder (Yelp)",
   "main": "index.js",
   "scripts": {

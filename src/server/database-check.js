@@ -2,18 +2,11 @@
 
 const MongoClient = require('mongodb').MongoClient;
 
-const config = function() {
-  if (process.env.NODE_ENV !== 'production') {
-    return require('../../.application-config.json');
-  } else {
-    return {};
-  }
-}();
-
 const createDatabaseUrl = function() {
-  const address = config.database.url || process.env.MONGO_ADDRESS;
-  const port = config.database.port || process.env.MONGO_PORT;
-  const databaseName = config.database.databaseName || process.env.MONGO_DBNAME;
+  const address = process.env.DB_URL;
+  const port = process.env.DB_PORT;
+  const databaseName = process.env.DB_NAME;
+
   return `${address}:${port}/${databaseName}`;
 };
 

@@ -12,11 +12,11 @@
     "test:frontend": "jest --colors",
     "lint": "eslint **/*.js --ignore-pattern node_modules/",
     "build": "webpack -p --colors --config webpack.config.js",
-    "start:backend": "node ./src/server/index.js",
+    "start:backend": "node -r dotenv/config ./src/server/index.js",
     "start": "npm-run-all --sequential build start:backend",
     "heroku-prebuild": "npm install --only=dev",
     "dev:frontend": "webpack-dev-server --colors --content-base dist/ --inline --hot --port 3000",
-    "dev:backend": "nodemon ./src/server/index.js"
+    "dev:backend": "nodemon -r dotenv/config ./src/server/index.js"
   },
   "repository": {
     "type": "git",
@@ -53,6 +53,7 @@
   },
   "homepage": "https://github.com/greenfox-academy/epam-jsa-agate#readme",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.15.5",
     "mongodb": "^2.2.31",
     "react": "^15.6.2",

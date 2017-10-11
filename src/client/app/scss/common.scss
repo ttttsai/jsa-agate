@@ -1,0 +1,42 @@
+@mixin login-signup-form-box {
+  text-align: center;
+  padding: 1rem;
+  background-color: #eee;
+  border-radius: 3px;
+  min-width: calc(260px - 2rem);
+  width: 15%;
+  position: relative;
+  top: 20%;
+  margin: 0 auto;
+  button {
+    background: transparent;
+    border: none;
+    margin-top: 1rem;
+    outline: none;
+    cursor: pointer;
+  }
+  h1 {
+    font-size: x-large;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    line-height: 2rem;
+    outline: none;
+  }
+  
+  input[type="submit"] {
+    background-color: transparent;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  input:not([type="submit"]) {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+  }
+}

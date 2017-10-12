@@ -9,9 +9,17 @@ const createDatabaseUrl = function() {
   return `${address}:${port}/${databaseName}`;
 };
 
-const insertFileToDatabase = function(requiredJsonfile,collectionName) {
+const connectToMongoDb = function(url, callback) {
+  MongoClient.connect(url, callback);
+};
+
+const insertFileToDatabase = function(requiredJsonfile, collectionName) {
   const url = createDatabaseUrl();
-  MongoClient.connect(url, function(err, db) {
+  connectToMongoDb(url, insertFile(requiredJsonfile, collectionName));
+};
+
+const insertFile = function(requiredJsonfile, collectionName) {
+  return function(err, db) {
     if (err === null) {
       let collection = db.collection(collectionName);
       collection.find({}).toArray(function(err, docs) {
@@ -28,10 +36,11 @@ const insertFileToDatabase = function(requiredJsonfile,collectionName) {
     } else {
       db.close();
     }
-  });
+  };
 };
 
 module.exports = {
   createDatabaseUrl: createDatabaseUrl,
   insertFileToDatabase: insertFileToDatabase,
+  connectMongo: connectToMongoDb,
 };

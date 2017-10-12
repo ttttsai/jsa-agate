@@ -39,7 +39,7 @@ app.get('/api/businesses', function(req, res) {
 
 app.use(express.static(path.resolve(__dirname, '../../dist')));
 
-app.get('/login', (req, res) => {
+app.get(['/', '/login', '/register'], (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist/index.html'));
 });
 

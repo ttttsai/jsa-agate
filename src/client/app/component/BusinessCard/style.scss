@@ -1,14 +1,7 @@
-$font-family: FSElliotPro-Bold;
 $border: 1px solid black;
 $red: #D93738;
 $yellow: #F8E71C;
 $white: #FFFFFF;
-
-#business-overview-container {
-  font-family: $font-family;
-  width: 47.4375em;
-  background-color: #4B4B4B;
-}
 
 .single-business {
   width: 13.25em;
@@ -24,7 +17,9 @@ $white: #FFFFFF;
 .image-container {
   width: 13.25em;
   height: 13.25em;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .business-score {
@@ -35,13 +30,9 @@ $white: #FFFFFF;
 }
 
 .business-name {
-  width: 8em;
   height: 1.6875em;
   font-size: 1.375em;
   color: $yellow;
-  position: absolute;
-  top: 4.75em;
-  left: 2em;
 }
 
 .business-title {

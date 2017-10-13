@@ -1,9 +1,11 @@
+const responseMessage = require('./responseMessage.js');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const expressJWT = require('express-jwt');
 const jwt = require('jsonwebtoken');
 const DatabaseHealth = require('./database-check');
+const Register = require('./database-post-register');
 const BusinessessEndpoint = require('./business-endpoint');
 const dbUtility = require('./db-utility');
 const businessesJson = require('./businesses.json');
@@ -22,6 +24,13 @@ const JWTMiddleware = expressJWT({secret: secret});
 
 app.use(bodyParser.json());
 
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+let generateHash = function(password) {
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(saltRounds));
+};
+
 app.get('/feed', function(req, res) {
   dbUtility.insertFileToDatabase(businessesJson, collectionName);
   res.json(dataFeedStatus);
@@ -29,8 +38,8 @@ app.get('/feed', function(req, res) {
 
 app.get('/heartbeat', function(req, res) {
   DatabaseHealth.checkDatabaseHealth((isWorking) => {
-    isWorking ? res.json(okStatus) :
-      res.json(errorStatus);
+    isWorking ? res.json(responseMessage.OK_STATUS) :
+      res.json(responseMessage.ERROR_STATUS);
   });
 });
 
@@ -41,7 +50,7 @@ app.get('/api/businesses', function(req, res) {
       let businesses = {businesses: data};
       res.status(200).json(businesses);
     } else {
-      res.status(500).json(apiErrorMessage);
+      res.status(500).json(responseMessage.API_ERROR_MESSAGE);
     }
   });
 });
@@ -76,6 +85,32 @@ app.post('/api/login', (req, res) => {
 });
 
 app.use(express.static(path.resolve(__dirname, '../../dist')));
+
+app.post('/api/register', function(req, res) {
+  if (req.headers['content-type'] !== 'application/json') {
+    return res.json(responseMessage.CONTENTTYPE_ERROR);
+  }
+  if (!req.body.username) {
+    return res.json(responseMessage.USERNAME_MISSING);
+  }
+  if (!req.body.password) {
+    return res.json(responseMessage.PASSWORD_MISSING);
+  }
+
+  const passwordHash = generateHash(req.body.password);
+  Register.handleInfo(req.body.username, passwordHash,
+    (dbResponseStatus) => {
+      if (dbResponseStatus === '409') {
+        return res.json(responseMessage.USERNAME_CONFLICT);
+      }
+      if (dbResponseStatus === '500') {
+        return res.json(responseMessage.OTHER_ERROR);
+      }
+      if (dbResponseStatus === '201') {
+        return res.json(responseMessage.REGISTER_SUCCESS);
+      }
+    });
+});
 
 app.listen(PORT, function() {
   console.log(`app is listening on port ${PORT}`);

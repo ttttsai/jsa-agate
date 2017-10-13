@@ -7,28 +7,28 @@ const createDatabaseUrl = function() {
   return `${address}:${port}/${databaseName}`;
 };
 
-const postRegister = function(body, callback) {
+const handleInfo = function(username, passwordHash, callback) {
   const url = createDatabaseUrl();
   MongoClient.connect(url, function(err, db) {
-    const searchUserName = {username: body.username};
+    const filter = {username: username};
     if (err === null) {
-      let collection = db.collection('heartbeat');
-      collection.find(searchUserName).toArray(function(err, docs) {
-        if (docs.length > 0) {
+      let collection = db.collection('register');
+      collection.findOne(filter, function(err, docs) {
+        if (docs !== null) {
           callback('409');
         } else {
-          collection.insertOne(body, function(err, docs2) {
+          collection.insertOne({username: username, password: passwordHash}, function(err, doc) {
             callback('201');
+            db.close();
           });
         }
       });
     } else {
       callback('500');
     }
-    db.close();
   });
 };
 
 module.exports = {
-  postRegister: postRegister,
+  handleInfo: handleInfo,
 };

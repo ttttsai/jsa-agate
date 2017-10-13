@@ -1,18 +1,20 @@
 import React from 'react';
 import './style.scss';
-import SingleBusinessOverview from '../SingleBusinessOverview';
-import {imagesDetails} from './imagesDetails';
+import BusinessCard from '../BusinessCard';
 
 class BusinessOverview extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
-    let allBusiness = imagesDetails.map((item, index) => {
-      return <SingleBusinessOverview itemInfo={item} />;
+    let allBusiness = this.props.businesses.map((item, index) => {
+      return <BusinessCard itemInfo={item} />;
     });
 
     return (
       <div id="business-overview-container">
         <div className="business-overview-title">
-          The Best places you should not miss in Osaka</div>
+          The Best places you should not miss in Shenzhen</div>
         {allBusiness}
       </div>
     );

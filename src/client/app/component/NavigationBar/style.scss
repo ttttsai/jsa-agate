@@ -13,7 +13,7 @@ $white: #FFFFFF;
   font-size: 2em;
 }
 
-#nav-container {
+.nav-container {
   background-color: #4B4B4B;  
   border-bottom: 1px solid #ADAFB2 ;
   display: flex;
@@ -28,32 +28,26 @@ $white: #FFFFFF;
 .nav-link-origin {
   color: #ADAFB2 ;
   text-transform: uppercase;
-  // width: 5.9375em;
   height: 0.875em;
   font-size: 0.85em;
   padding: 1.32em 0em;
   text-decoration: none;
   text-align: center;
-  //border-bottom: 1px solid #ADAFB2 ;
   border-bottom: 1px solid #ADAFB2 ;
-  
 }
 
 .nav-link-change {
   color: #FFFFFF;
   text-transform: uppercase;
-  // width: 5.9375em;
   height: 0.875em;
   font-size: 0.85em;
   padding: 1.32em 0em;
   text-decoration: none;
   text-align: center;
   border-bottom: 1px solid yellow;
-  // border: 1px solid yellow;
-  
 }
 
-#comment-img {
+.comment-img {
   width: 1em;
   height: 1em;
   margin-top: -2px;
@@ -61,30 +55,28 @@ $white: #FFFFFF;
   top: 1.5em;
 }
 
-#nav-container a:first-child {
+.nav-container a:first-child {
   color: #FFFFFF;
   width: 5.9375em;
 }
 
-#nav-container a:nth-child(2) {
+.nav-container a:nth-child(2) {
   width: 7.9375em;
-  
-  
 }
 
-#nav-container a:nth-child(3) {
+.nav-container a:nth-child(3) {
   width: 5.9375em;
-  
-  
 }
 
-
-#nav-container a:nth-child(4) {
+.nav-container a:nth-child(4) {
   width: 7.9375em;
-  
 }
 
-#nav-container a:nth-child(5) {
+.nav-container a:nth-child(5) {
+  padding-right: 2em;
   width: 9.9375em;
-  
+}
+
+.nav-container a:hover {
+  background-color: #313131;
 }

@@ -1,3 +1,10 @@
+@mixin error-form-box {
+  input:not([type='submit']) {
+    background-color: #fff5f5;
+    border-bottom: 1px solid #f00;
+  }
+}
+
 @mixin login-signup-form-box {
   background-color: #eee;
   border-radius: 3px;
@@ -5,10 +12,11 @@
   margin: 0 auto;
   min-width: calc(260px - 2rem);
   padding: 1rem;
-  position: relative;
   text-align: center;
-  top: 20%;
-  width: 15%;
+
+  .ant-spin-nested-loading>div>.ant-spin {
+    position: inherit;
+  }
 
   button {
     background: transparent;
@@ -41,5 +49,12 @@
     border: 0;
     border-bottom: 1px solid #000;
     margin-bottom: 1rem;
+  }
+
+  .form-error-message {
+    color: #f00;
+    display: block;
+    line-height: 2rem;
+    width: 100%;
   }
 }

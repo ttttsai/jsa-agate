@@ -58,6 +58,7 @@
   },
   "homepage": "https://github.com/greenfox-academy/epam-jsa-agate#readme",
   "dependencies": {
+    "antd": "^2.13.6",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",

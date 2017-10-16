@@ -1,6 +1,7 @@
 'use strict';
 
 const MongoClient = require('mongodb').MongoClient;
+const collectionName = 'users';
 
 function createDatabaseUrl() {
   const address = process.env.DB_URL;
@@ -17,7 +18,7 @@ function handleInfo(username, passwordHash, callback) {
     const filter = {username: username};
 
     if (err === null) {
-      let collection = db.collection('register');
+      let collection = db.collection(collectionName);
 
       collection.findOne(filter, function(err, docs) {
         if (err) {

@@ -67,19 +67,21 @@ app.post('/api/login', (req, res) => {
         json({error: 'usename and password required'});
     }
   });
-  login.createTokenForExistingUser(req.body,
-    (status) => {
-      if (status === loginStatusCode.CORRECT) {
-        const token = jwt.sign({username: req.body.username}, secret);
+  if (!res._headerSent) {
+    login.createTokenForExistingUser(req.body,
+      (status) => {
+        if (status === loginStatusCode.CORRECT) {
+          const token = jwt.sign({username: req.body.username}, secret);
 
-        return res.status(HTTP_200).json({token: token});
-      } else if (status === loginStatusCode.MISSING_CREDENTIALS) {
-        return res.status(HTTP_403).json({error: 'Bad credentials'});
-      } else if (status === loginStatusCode.WRONG_SERVER) {
-        return res.status(HTTP_500).json({error: 'Something went wrong'});
+          return res.status(HTTP_200).json({token: token});
+        } else if (status === loginStatusCode.MISSING_CREDENTIALS) {
+          return res.status(HTTP_403).json({error: 'Bad credentials'});
+        } else if (status === loginStatusCode.WRONG_SERVER) {
+          return res.status(HTTP_500).json({error: 'Something went wrong'});
+        }
       }
-    }
-  );
+    );
+  }
 });
 
 app.use(express.static(path.resolve(__dirname, '../../dist')));

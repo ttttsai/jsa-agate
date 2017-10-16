@@ -50,8 +50,10 @@ function validation(req, callback) {
   if (req.headers['content-type'] !== 'application/json') {
     return callback(loginStatusCode.WRONG_CONTENT_TYPE);
   }
-  if (!req.body.username && !req.body.password) {
-    return callback(loginStatusCode.WRONG_USERNAME_PASSWORD);
+  if (!req.body) {
+    if (!req.body.username && !req.body.password) {
+      return callback(loginStatusCode.WRONG_USERNAME_PASSWORD);
+    }
   }
 }
 

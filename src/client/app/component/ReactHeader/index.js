@@ -2,7 +2,6 @@ import React from 'react';
 import './style.scss';
 import BusinessOverview from '../BusinessOverview';
 
-
 class ReactHeader extends React.Component {
   render() {
     return (

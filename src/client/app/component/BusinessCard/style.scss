@@ -1,65 +1,64 @@
-$border: 1px solid black;
-$red: #D93738;
-$yellow: #F8E71C;
-$white: #FFFFFF;
+$border: 1px solid #000;
+$red: #d93738;
+$yellow: #f8e71c;
+$white: #fff;
 
 .single-business {
-  width: 13.25em;
-  height: 22.1875em;
-  border: $border;
   background-color: #282828;
-  position: relative;
+  border: $border;
   display: inline-block;
+  height: 22.1875em;
   margin-left: 1.8125em;
   margin-top: 1.6875em;
+  position: relative;
+  width: 13.25em;
 }
 
 .image-container {
-  width: 13.25em;
-  height: 13.25em;
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 13.25em;
   justify-content: center;
+  width: 13.25em;
 }
 
 .business-score {
-  position: absolute;
-  top: 0.625em;
-  left: 0.625em;
   color: $red;
+  left: .625em;
+  position: absolute;
+  top: .625em;
 }
 
 .business-name {
-  height: 1.6875em;
-  font-size: 1.375em;
   color: $yellow;
+  font-size: 1.375em;
+  height: 1.6875em;
 }
 
 .business-title {
-  width: 9.6875em;
-  height: 1.0625em;
-  font-size: 0.875em;
   color: $white;
+  font-size: .875em;
+  height: 1.0625em;
+  left: .4375em;
   position: absolute;
   top: 16.125em;
-  left: 0.4375em;
+  width: 9.6875em;
 }
 
 .business-description {
-  width: 16.125em;
-  height: 2.5em;
-  font-size: 0.75em;
-  color: #ADAFB2;
-  display: -webkit-box !important;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
   -webkit-box-orient: vertical;
+  color: #adafb2;
+  display: -webkit-box !important;
+  font-size: .75em;
+  height: 2.5em;
+  left: .6em;
   -webkit-line-clamp: 2;
   overflow: hidden;
   position: absolute;
-  left: 0.6em;
+  text-overflow: ellipsis;
   top: 20.71875em;
+  width: 16.125em;
+  word-break: break-all;
 }
 
 .business-infor {
@@ -68,23 +67,23 @@ $white: #FFFFFF;
 }
 
 .business-keywords {
-  width: 7.3125em;
-  height: 0.875em;
+  color: #adafb2;
   font-size: 12px;
-  color: #ADAFB2;
+  height: .875em;
+  left: .75em;
   position: absolute;
-  left: 0.75em;
   top: 25.375em;
+  width: 7.3125em;
 }
 
 .business-more {
-  text-transform: uppercase;
-  width: 2.1875em;
-  height: 0.875em;
-  font-size: 0.75em;
   color: $yellow;
-  text-decoration: none;
-  position: absolute;
+  font-size: .75em;
+  height: .875em;
   left: 14em;
+  position: absolute;
+  text-decoration: none;
+  text-transform: uppercase;
   top: 25.375em;
+  width: 2.1875em;
 }

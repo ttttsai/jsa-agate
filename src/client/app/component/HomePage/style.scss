@@ -1,33 +1,32 @@
-$mapWidth: 45%;
-$containerWidth: 55%;
-$testHeight: 64.6875em;
+$map-width: 45%;
+$container-width: 55%;
+
 body {
   margin: 0;
 }
 
 .home-page {
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 
 .main {
   display: flex;
   flex-flow: row nowrap;
+  height: calc(100vh - 4.812em);
   justify-content: space-between;
-  height: calc(100vh - 4.812em);  
 }
 
 .home-page-container {
-  order: 0;
-  flex-basis: $containerWidth;
-  background-color: #4B4B4B;
+  background-color: #4b4b4b;
+  flex-basis: $container-width;
   height: 100%;
-  
+  order: 0;
 }
 
 .home-page-map {
+  flex-basis: $map-width;
+  height: 100%;
   order: 1;
-  flex-basis: $mapWidth;
-  width: $mapWidth;
-  height: 100%;  
+  width: $map-width;
 }

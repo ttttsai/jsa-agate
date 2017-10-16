@@ -8,25 +8,24 @@ import './style.scss';
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      businesses: [],
-    };
+    this.state = {businesses: []};
   }
   componentWillMount() {
     this.fetchBusinesses();
   }
   fetchBusinesses() {
     let that = this;
+
     fetch('/api/businesses').then(function(response) {
-      if (response.status === 200) {
+      if (response.status === '200') {
         return response.json();
-      } else if (response.status === 404) {
+      } else if (response.status === '404') {
         throw new Error('Oops..something went wrong.');
       }
     }).then(function(value) {
       that.setState({businesses: value.businesses});
     }).catch(function(err) {
-      console.log(err);
+      // console.log(err);
     });
   }
   render() {

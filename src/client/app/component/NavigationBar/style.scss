@@ -1,61 +1,62 @@
-$border: 1px solid black;
-$red: #D93738;
-$yellow: #F8E71C;
-$white: #FFFFFF;
+$border: 1px solid #000;
+$red: #d93738;
+$yellow: #f8e71c;
+$white: #fff;
+
 .nav-title {
-  background-color: #4B4B4B;
+  background-color: #4b4b4b;
 }
 
 .nav-title h1 {
-  margin: 0 0 0 1em;
   color: $white;
   font-size: 2em;
+  margin: 0 0 0 1em;
 }
 
 .nav-container {
-  background-color: #4B4B4B;  
-  border-bottom: 1px solid #ADAFB2 ;
-  display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  background-color: #4b4b4b;
+  border-bottom: 1px solid #adafb2;
+  display: flex;
   height: 3em;
-  position: relative;
+  justify-content: space-between;
   margin-left: 2em;
   margin-right: 2em;
+  position: relative;
 }
 
 .nav-link-origin {
-  color: #ADAFB2 ;
-  text-transform: uppercase;
-  height: 0.875em;
-  font-size: 0.85em;
-  padding: 1.32em 0em;
-  text-decoration: none;
+  border-bottom: 1px solid #adafb2;
+  color: #adafb2;
+  font-size: .85em;
+  height: .875em;
+  padding: 1.32em 0;
   text-align: center;
-  border-bottom: 1px solid #ADAFB2 ;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .nav-link-change {
-  color: #FFFFFF;
-  text-transform: uppercase;
-  height: 0.875em;
-  font-size: 0.85em;
-  padding: 1.32em 0em;
-  text-decoration: none;
+  border-bottom: 1px solid #ff0;
+  color: #fff;
+  font-size: .85em;
+  height: .875em;
+  padding: 1.32em 0;
   text-align: center;
-  border-bottom: 1px solid yellow;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .comment-img {
-  width: 1em;
   height: 1em;
   margin-top: -2px;
   position: absolute;
   top: 1.5em;
+  width: 1em;
 }
 
 .nav-container a:first-child {
-  color: #FFFFFF;
+  color: #fff;
   width: 5.9375em;
 }
 

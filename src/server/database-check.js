@@ -3,26 +3,26 @@
 const MongoClient = require('mongodb').MongoClient;
 const dbUtility = require('./db-utility');
 
-const checkDatabaseHealth = function(callback) {
+function checkDatabaseHealth(callback) {
   const url = dbUtility.createDatabaseUrl();
+
   MongoClient.connect(url, function(err, db) {
     if (err === null) {
       let collection = db.collection('heartbeat');
+
       collection.find({}).toArray(function(err, docs) {
-        if (err === null && docs.length > 0) {
-          callback(true);
-        } else {
-          callback(false);
+        const zero = 0;
+
+        if (err === null && docs.length > zero) {
+          return callback(true);
         }
+        return callback(false);
       });
     } else {
-      console.log('err', err);
-      callback(false);
+      return callback(false);
     }
     db.close();
   });
-};
+}
 
-module.exports = {
-  checkDatabaseHealth: checkDatabaseHealth,
-};
+module.exports = {checkDatabaseHealth: checkDatabaseHealth};

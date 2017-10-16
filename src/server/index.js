@@ -1,8 +1,9 @@
+'use strict';
+
 const responseMessage = require('./responseMessage.js');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const expressJWT = require('express-jwt');
 const jwt = require('jsonwebtoken');
 const DatabaseHealth = require('./database-check');
 const Register = require('./database-post-register');
@@ -11,25 +12,22 @@ const dbUtility = require('./db-utility');
 const businessesJson = require('./businesses.json');
 const login = require('./login');
 const loginStatusCode = require('./status-code');
-
+const {HTTP_200, HTTP_400, HTTP_403, HTTP_500} = require('./http-status-code');
 const app = express();
+const DEFAULT_PORT = 3000;
 const collectionName = 'businesses';
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || DEFAULT_PORT;
 const dataFeedStatus = {insert: 'ok'};
-const okStatus = {status: 'ok', database: 'ok'};
-const errorStatus = {status: 'ok', database: 'error'};
-const apiErrorMessage = {error: 'something went wrong'};
 const secret = 'epam jsa agate';
-const JWTMiddleware = expressJWT({secret: secret});
 
 app.use(bodyParser.json());
 
-
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-let generateHash = function(password) {
+
+function generateHash(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(saltRounds));
-};
+}
 
 app.get('/feed', function(req, res) {
   dbUtility.insertFileToDatabase(businessesJson, collectionName);
@@ -37,10 +35,9 @@ app.get('/feed', function(req, res) {
 });
 
 app.get('/heartbeat', function(req, res) {
-  DatabaseHealth.checkDatabaseHealth((isWorking) => {
+  DatabaseHealth.checkDatabaseHealth((isWorking) =>
     isWorking ? res.json(responseMessage.OK_STATUS) :
-      res.json(responseMessage.ERROR_STATUS);
-  });
+      res.json(responseMessage.ERROR_STATUS));
 });
 
 app.get('/api/businesses', function(req, res) {
@@ -48,9 +45,10 @@ app.get('/api/businesses', function(req, res) {
     if (isWorking) {
       let data = docs[0] ? docs[0].businesses : [];
       let businesses = {businesses: data};
-      res.status(200).json(businesses);
+
+      res.status(HTTP_200).json(businesses);
     } else {
-      res.status(500).json(responseMessage.API_ERROR_MESSAGE);
+      res.status(HTTP_500).json(responseMessage.API_ERROR_MESSAGE);
     }
   });
 });
@@ -62,23 +60,23 @@ app.get(['/', '/login', '/register'], (req, res) => {
 app.post('/api/login', (req, res) => {
   login.validation(req, (status) => {
     if (status === loginStatusCode.WRONG_CONTENT_TYPE) {
-      return res.status(400).
+      return res.status(HTTP_400).
         json({error: 'content-type should be application/json'});
     } else if (status === loginStatusCode.WRONG_USERNAME_PASSWORD) {
-      return res.status(400).json({error: 'usename and password required'});
+      return res.status(HTTP_400).
+        json({error: 'usename and password required'});
     }
   });
   login.createTokenForExistingUser(req.body,
     (status) => {
       if (status === loginStatusCode.CORRECT) {
         const token = jwt.sign({username: req.body.username}, secret);
-        return res.status(200).json({token: token});
+
+        return res.status(HTTP_200).json({token: token});
       } else if (status === loginStatusCode.MISSING_CREDENTIALS) {
-        return res.status(403).json({error: 'Bad credentials'});
+        return res.status(HTTP_403).json({error: 'Bad credentials'});
       } else if (status === loginStatusCode.WRONG_SERVER) {
-        return res.status(500).json({error: 'Something went wrong'});
-      } else if (status === loginStatusCode.MISSING_CREDENTIALS) {
-        return res.status(403).json({error: 'Bad credentials'});
+        return res.status(HTTP_500).json({error: 'Something went wrong'});
       }
     }
   );
@@ -86,29 +84,53 @@ app.post('/api/login', (req, res) => {
 
 app.use(express.static(path.resolve(__dirname, '../../dist')));
 
-app.post('/api/register', function(req, res) {
+function validateHeader(req, res) {
   if (req.headers['content-type'] !== 'application/json') {
     return res.json(responseMessage.CONTENTTYPE_ERROR);
   }
+}
+
+function validateUsername(req, res) {
   if (!req.body.username) {
     return res.json(responseMessage.USERNAME_MISSING);
   }
+}
+
+function validatePassword(req, res) {
   if (!req.body.password) {
     return res.json(responseMessage.PASSWORD_MISSING);
   }
+}
+
+function responseUsernameConflit(dbResponseStatus, res) {
+  if (dbResponseStatus === '409') {
+    return res.json(responseMessage.USERNAME_CONFLICT);
+  }
+}
+
+function responseOtherError(dbResponseStatus, res) {
+  if (dbResponseStatus === '500') {
+    return res.json(responseMessage.OTHER_ERROR);
+  }
+}
+
+function responseRegisterSuccess(dbResponseStatus, res) {
+  if (dbResponseStatus === '201') {
+    return res.json(responseMessage.REGISTER_SUCCESS);
+  }
+}
+app.post('/api/register', function(req, res) {
+  validateHeader(req, res);
+  validateUsername(req, res);
+  validatePassword(req, res);
 
   const passwordHash = generateHash(req.body.password);
+
   Register.handleInfo(req.body.username, passwordHash,
     (dbResponseStatus) => {
-      if (dbResponseStatus === '409') {
-        return res.json(responseMessage.USERNAME_CONFLICT);
-      }
-      if (dbResponseStatus === '500') {
-        return res.json(responseMessage.OTHER_ERROR);
-      }
-      if (dbResponseStatus === '201') {
-        return res.json(responseMessage.REGISTER_SUCCESS);
-      }
+      responseUsernameConflit(dbResponseStatus, res);
+      responseOtherError(dbResponseStatus, res);
+      responseRegisterSuccess(dbResponseStatus, res);
     });
 });
 

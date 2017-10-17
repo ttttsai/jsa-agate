@@ -106,8 +106,11 @@ function responseOtherError(dbResponseStatus, res) {
   }
 }
 
-function responseRegisterSuccess(dbResponseStatus, res) {
+function responseRegisterSuccess(dbResponseStatus, req, res) {
   if (dbResponseStatus === '201') {
+    const token = jwt.sign({username: req.body.username}, secret);
+
+    responseMessage.REGISTER_SUCCESS.token = token;
     return res.json(responseMessage.REGISTER_SUCCESS);
   }
 }
@@ -123,7 +126,7 @@ app.post('/api/register', function(req, res) {
     (dbResponseStatus) => {
       responseUsernameConflit(dbResponseStatus, res);
       responseOtherError(dbResponseStatus, res);
-      responseRegisterSuccess(dbResponseStatus, res);
+      responseRegisterSuccess(dbResponseStatus, req, res);
     });
 });
 

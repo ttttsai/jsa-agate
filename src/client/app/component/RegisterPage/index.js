@@ -54,14 +54,15 @@ class RegisterPage extends React.Component {
       if (value.status === '409') {
         throw new Error(value.status);
       } else {
-        that.successHandler();
+        that.successHandler(value.token);
       }
     }).catch(function(err) {
       that.errorHandler(err);
     });
   }
-  successHandler() {
+  successHandler(token) {
     this.setState({'errMsg': '', 'formHasError': false});
+    localStorage.setItem('Authorization', token);
     this.setState({'successRegister': true});
   }
   errorHandler(err) {
@@ -70,12 +71,13 @@ class RegisterPage extends React.Component {
         'errMsg': 'User name has been used.',
         'formHasError': true,
       });
+      localStorage.removeItem('Authorization');
     }
   }
   render() {
     const {successRegister, loading, errMsg, formHasError} = this.state;
 
-    return successRegister ? (<Redirect to="/login" />) : (
+    return successRegister ? (<Redirect to="/" />) : (
       <div className="register-page">
         <Header />
         <div className="register-page-content">

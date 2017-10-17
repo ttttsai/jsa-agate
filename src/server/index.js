@@ -8,31 +8,21 @@ const jwt = require('jsonwebtoken');
 const DatabaseHealth = require('./database-check');
 const Register = require('./database-post-register');
 const BusinessessEndpoint = require('./business-endpoint');
-const dbUtility = require('./db-utility');
-const businessesJson = require('./businesses.json');
 const login = require('./login');
 const loginStatusCode = require('./status-code');
 const {HTTP_200, HTTP_400, HTTP_403, HTTP_500} = require('./http-status-code');
 const app = express();
 const DEFAULT_PORT = 3000;
-const collectionName = 'businesses';
 const PORT = process.env.PORT || DEFAULT_PORT;
-const dataFeedStatus = {insert: 'ok'};
 const secret = 'epam jsa agate';
-
-app.use(bodyParser.json());
-
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+
+app.use(bodyParser.json());
 
 function generateHash(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(saltRounds));
 }
-
-app.get('/feed', function(req, res) {
-  dbUtility.insertFileToDatabase(businessesJson, collectionName);
-  res.json(dataFeedStatus);
-});
 
 app.get('/heartbeat', function(req, res) {
   DatabaseHealth.checkDatabaseHealth((isWorking) =>
@@ -43,7 +33,7 @@ app.get('/heartbeat', function(req, res) {
 app.get('/api/businesses', function(req, res) {
   BusinessessEndpoint.fetchBusinesses((isWorking, docs) => {
     if (isWorking) {
-      let data = docs[0] ? docs[0].businesses : [];
+      let [...data] = docs;
       let businesses = {businesses: data};
 
       res.status(HTTP_200).json(businesses);
@@ -121,6 +111,7 @@ function responseRegisterSuccess(dbResponseStatus, res) {
     return res.json(responseMessage.REGISTER_SUCCESS);
   }
 }
+
 app.post('/api/register', function(req, res) {
   validateHeader(req, res);
   validateUsername(req, res);

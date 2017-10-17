@@ -7,14 +7,14 @@ class BusinessCard extends React.Component {
     let score = Math.floor(data.rating);
     let style = {background: 'url(' + data.imageUrl + ')'};
 
-    data.rating = '★'.repeat(score);
+    data.score = '★'.repeat(score);
 
     return (
       <div className="single-business">
         <div className="image-container"
           style={style} >
           <span className="business-score">
-            {data.rating}</span>
+            {data.score}</span>
           <span className="business-name">
             {data.name}</span>
         </div>

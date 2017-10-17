@@ -30,3 +30,7 @@ body {
   order: 1;
   width: $map-width;
 }
+
+.ant-notification-notice-close-x::after {
+  content: 'Close';
+}

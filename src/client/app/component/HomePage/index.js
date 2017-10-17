@@ -2,7 +2,9 @@ import React from 'react';
 import HomePageHeader from '../HomePageHeader';
 import HomePageContainer from '../HomePageContainer';
 import HomePageMap from '../HomePageMap';
+import {notification} from 'antd';
 
+import 'antd/lib/notification/style/index.css';
 import './style.scss';
 
 class HomePage extends React.Component {
@@ -13,19 +15,26 @@ class HomePage extends React.Component {
   componentWillMount() {
     this.fetchBusinesses();
   }
+  errorHandler(err) {
+    notification.open({
+      message: err.message,
+      description: 'Please try again.',
+      placement: 'bottomLeft',
+    });
+  }
   fetchBusinesses() {
     let that = this;
 
     fetch('/api/businesses').then(function(response) {
-      if (response.status === '200') {
-        return response.json();
-      } else if (response.status === '404') {
-        throw new Error('Oops..something went wrong.');
-      }
+      return response.json();
     }).then(function(value) {
-      that.setState({businesses: value.businesses});
+      if (value.error) {
+        throw new Error(value.error);
+      } else {
+        that.setState({businesses: value.businesses});
+      }
     }).catch(function(err) {
-      // console.log(err);
+      that.errorHandler(err);
     });
   }
   render() {

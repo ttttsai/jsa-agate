@@ -11,7 +11,7 @@ class BusinessOverview extends React.Component {
       (item, index) => <BusinessCard itemInfo={item} />);
 
     return (
-      <div className="business-overview-container">
+      <div className="business-overview-container scrollbar scrollbar-style">
         <div className="business-overview-title">
           The Best places you should not miss in Shenzhen</div>
         {allBusiness}

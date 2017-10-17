@@ -51,10 +51,10 @@ app.post('/api/login', (req, res) => {
   login.validation(req, (status) => {
     if (status === loginStatusCode.WRONG_CONTENT_TYPE) {
       return res.status(HTTP_400).
-        json({error: 'content-type should be application/json'});
+        json({error: 'Content-type should be application/json.'});
     } else if (status === loginStatusCode.WRONG_USERNAME_PASSWORD) {
       return res.status(HTTP_400).
-        json({error: 'usename and password required'});
+        json({error: 'Usename and password required.'});
     }
   });
   if (!res._headerSent) {
@@ -65,9 +65,9 @@ app.post('/api/login', (req, res) => {
 
           return res.status(HTTP_200).json({token: token});
         } else if (status === loginStatusCode.MISSING_CREDENTIALS) {
-          return res.status(HTTP_403).json({error: 'Bad credentials'});
+          return res.status(HTTP_403).json({error: 'Bad credentials.'});
         } else if (status === loginStatusCode.WRONG_SERVER) {
-          return res.status(HTTP_500).json({error: 'Something went wrong'});
+          return res.status(HTTP_500).json({error: 'Something went wrong.'});
         }
       }
     );

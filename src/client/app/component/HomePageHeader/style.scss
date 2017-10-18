@@ -3,6 +3,27 @@
   background: linear-gradient(0deg, #4b4b4b 30%, #000);
   display: flex;
   height: 4.8125em;
+  justify-content: space-between;
+  padding: 0 1.5em;
+
+  .home-page-header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .home-page-header-right {
+    button {
+      background: transparent;
+      border: 0;
+      color: #fff;
+      cursor: pointer;
+      outline: 0;
+    }
+  }
+
+  .header-log-btn {
+    color: #fff;
+  }
 }
 
 .search {

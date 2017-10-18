@@ -2,7 +2,7 @@ import React from 'react';
 import HomePageHeader from '../HomePageHeader';
 import HomePageContainer from '../HomePageContainer';
 import HomePageMap from '../HomePageMap';
-import {notification} from 'antd';
+import notification from 'antd/lib/notification';
 
 import 'antd/lib/notification/style/index.css';
 import './style.scss';

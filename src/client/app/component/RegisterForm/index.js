@@ -1,6 +1,6 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import {Spin} from 'antd';
+import Spin from 'antd/lib/spin';
 import 'antd/lib/spin/style/index.css';
 import './style.scss';
 

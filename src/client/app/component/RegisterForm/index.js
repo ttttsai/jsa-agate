@@ -16,8 +16,7 @@ class RegisterForm extends React.Component {
     const formClassNames = this.props.formHasError ?
       'register-box error-form-box' : 'login-box';
     const {loading, onSubmit, errMsg} = this.props;
-    const passwordFormat = '^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])' +
-    '[A-Za-z\\d$@$!%*#?&]{6,50}$';
+    const passwordFormat = '.{6,}';
 
     return (
       <div className={formClassNames}>
@@ -28,13 +27,11 @@ class RegisterForm extends React.Component {
             <input title="Username must be 3 to 15 letters" type="text"
               name="username" placeholder="Username" pattern="[A-Za-z]{3,15}"
               required />
-            <input title="Minimum six characters, at least one letter,
-            one number and one special character"
+            <input title="Minimum six characters"
               type="password" name="password" placeholder="Password"
               pattern={passwordFormat}
               required/>
-            <input title="Minimum six characters, at least one letter,
-            one number and one special character"
+            <input title="Minimum six characters"
               type="password" name="retype-password"
               placeholder="Re-type Password" pattern={passwordFormat}
               required/>

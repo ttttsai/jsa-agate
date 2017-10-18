@@ -51,8 +51,8 @@ class RegisterPage extends React.Component {
       return response.json();
     }).then(function(value) {
       that.setState({'loading': false});
-      if (value.status === '409') {
-        throw new Error(value.status);
+      if (value.error === 'Conflict user name.') {
+        throw new Error(value.error);
       } else {
         that.successHandler(value.token);
       }
@@ -66,7 +66,7 @@ class RegisterPage extends React.Component {
     this.setState({'successRegister': true});
   }
   errorHandler(err) {
-    if (err.message == '409') {
+    if (err.message === 'Conflict user name.') {
       this.setState({
         'errMsg': 'User name has been used.',
         'formHasError': true,

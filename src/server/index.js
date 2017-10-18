@@ -11,8 +11,8 @@ const BusinessessEndpoint = require('./business-endpoint');
 const login = require('./login');
 const loginStatusCode = require('./status-code');
 const {
-  HTTP_200, HTTP_400, HTTP_403, HTTP_404,
-  HTTP_500,
+  HTTP_200, HTTP_201, HTTP_400, HTTP_403, HTTP_404,
+  HTTP_409, HTTP_500,
 } = require('./http-status-code');
 const app = express();
 const DEFAULT_PORT = 3000;
@@ -91,33 +91,27 @@ app.post('/api/login', (req, res) => {
 
 app.use(express.static(path.resolve(__dirname, '../../dist')));
 
-function validateHeader(req, res) {
-  if (req.headers['content-type'] !== 'application/json') {
-    return res.json(responseMessage.CONTENTTYPE_ERROR);
-  }
+function responseContentTypeError(res) {
+  res.status(HTTP_400).json(responseMessage.CONTENTTYPE_ERROR);
 }
 
-function validateUsername(req, res) {
-  if (!req.body.username) {
-    return res.json(responseMessage.USERNAME_MISSING);
-  }
+function responseUsernameMissing(res) {
+  res.status(HTTP_400).json(responseMessage.USERNAME_MISSING);
 }
 
-function validatePassword(req, res) {
-  if (!req.body.password) {
-    return res.json(responseMessage.PASSWORD_MISSING);
-  }
+function responsePasswordMissing(res) {
+  res.status(HTTP_400).json(responseMessage.PASSWORD_MISSING);
 }
 
 function responseUsernameConflit(dbResponseStatus, res) {
   if (dbResponseStatus === '409') {
-    return res.json(responseMessage.USERNAME_CONFLICT);
+    return res.status(HTTP_409).json(responseMessage.USERNAME_CONFLICT);
   }
 }
 
 function responseOtherError(dbResponseStatus, res) {
   if (dbResponseStatus === '500') {
-    return res.json(responseMessage.OTHER_ERROR);
+    return res.status(HTTP_500).json(responseMessage.OTHER_ERROR);
   }
 }
 
@@ -126,23 +120,27 @@ function responseRegisterSuccess(dbResponseStatus, req, res) {
     const token = jwt.sign({username: req.body.username}, secret);
 
     responseMessage.REGISTER_SUCCESS.token = token;
-    return res.json(responseMessage.REGISTER_SUCCESS);
+    return res.status(HTTP_201).json(responseMessage.REGISTER_SUCCESS);
   }
 }
 
 app.post('/api/register', function(req, res) {
-  validateHeader(req, res);
-  validateUsername(req, res);
-  validatePassword(req, res);
+  if (req.headers['content-type'] !== 'application/json') {
+    (responseContentTypeError(res));
+  } else if (!req.body.username) {
+    (responseUsernameMissing(res));
+  } else if (!req.body.password) {
+    (responsePasswordMissing(res));
+  } else {
+    const passwordHash = generateHash(req.body.password);
 
-  const passwordHash = generateHash(req.body.password);
-
-  Register.handleInfo(req.body.username, passwordHash,
-    (dbResponseStatus) => {
-      responseUsernameConflit(dbResponseStatus, res);
-      responseOtherError(dbResponseStatus, res);
-      responseRegisterSuccess(dbResponseStatus, req, res);
-    });
+    Register.handleInfo(req.body.username, passwordHash,
+      (dbResponseStatus) => {
+        responseUsernameConflit(dbResponseStatus, res);
+        responseOtherError(dbResponseStatus, res);
+        responseRegisterSuccess(dbResponseStatus, req, res);
+      });
+  }
 });
 
 app.listen(PORT, function() {

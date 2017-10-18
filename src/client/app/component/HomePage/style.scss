@@ -1,34 +1,19 @@
-$map-width: 45%;
-$container-width: 55%;
+$map-width: 35%;
+$container-width: 65%;
 
 body {
   margin: 0;
 }
 
 .home-page {
-  height: 100%;
-  width: 100%;
-}
-
-.main {
+  height: 100vh;
   display: flex;
-  flex-flow: row nowrap;
-  height: calc(100vh - 4.812em);
-  justify-content: space-between;
-}
-
-.home-page-container {
   background-color: #4b4b4b;
-  flex-basis: $container-width;
-  height: 100%;
-  order: 0;
-}
 
-.home-page-map {
-  flex-basis: $map-width;
-  height: 100%;
-  order: 1;
-  width: $map-width;
+  .home-page-main {
+    height: 100vh;
+    width: $container-width;
+  }
 }
 
 .ant-notification-notice-close-x::after {

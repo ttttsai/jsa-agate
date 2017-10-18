@@ -1,3 +1,5 @@
+$header-height: 4.8125em;
+
 @mixin error-form-box {
   input:not([type='submit']) {
     background-color: #fff5f5;

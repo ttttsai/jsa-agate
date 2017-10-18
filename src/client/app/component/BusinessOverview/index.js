@@ -14,7 +14,7 @@ class BusinessOverview extends React.Component {
       <div className="business-overview-container scrollbar scrollbar-style">
         <div className="business-overview-title">
           The Best places you should not miss in Shenzhen</div>
-        {allBusiness}
+        <div className="businesses-container">{allBusiness}</div>
       </div>
     );
   }

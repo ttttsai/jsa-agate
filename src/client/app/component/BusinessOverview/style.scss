@@ -12,9 +12,16 @@ $white: #fff;
   width: 47.4375em;
 }
 
+.businesses-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2em;
+  justify-content: space-between;
+}
+
 .business-overview-container {
   background-color: #4b4b4b;
-  height: calc(100vh - 86px - 6.8125em);
+  height: calc(100vh - 86px - 4.8125em);
   width: 100%;
 }
 

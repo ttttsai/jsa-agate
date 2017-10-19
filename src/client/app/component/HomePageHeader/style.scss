@@ -9,6 +9,10 @@
   .home-page-header-left {
     display: flex;
     align-items: center;
+
+    .menu {
+      cursor: pointer;
+    }
   }
 
   .home-page-header-right {

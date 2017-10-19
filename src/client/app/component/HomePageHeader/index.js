@@ -7,6 +7,13 @@ class HomePageHeader extends React.Component {
     super(props);
     this.state = {'isLoggedIn': localStorage.getItem('Authorization') !== null};
   }
+  componentDidMount() {
+    const that = this;
+
+    this.refs.menuButton.addEventListener('click', function(event) {
+      that.props.history.push('/');
+    });
+  }
   submitHandler(event) {
     event.preventDefault();
     const input = event.target.elements[0].value;
@@ -33,7 +40,7 @@ class HomePageHeader extends React.Component {
     return (
       <div className = "home-page-header">
         <div className="home-page-header-left">
-          <div className="menu"></div>
+          <div className="menu" ref="menuButton"></div>
           <form className="header" onSubmit={this.submitHandler.bind(this)}
             onKeyUp={this.keyUPHandler.bind(this)}>
             <input className="search" type="search" id="mySearch"

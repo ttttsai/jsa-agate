@@ -58,7 +58,7 @@ app.get('/api/business/:id', function(req, res) {
   });
 });
 
-app.get(['/', '/login', '/register'], (req, res) => {
+app.get(['/', '/login', '/register', '/business/:id'], (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist/index.html'));
 });
 

@@ -1,7 +1,17 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import './style.scss';
 
 class BusinessCard extends React.Component {
+  componentDidMount() {
+    let businessCard = this.refs.businessCard;
+
+    businessCard.addEventListener('click', function(event) {
+      const id = this.props.itemInfo._id;
+
+      this.props.history.push('/business/' + id);
+    }.bind(this));
+  }
   render() {
     let data = this.props.itemInfo;
     let score = Math.floor(data.rating);
@@ -10,7 +20,7 @@ class BusinessCard extends React.Component {
     data.score = '★'.repeat(score);
 
     return (
-      <div className="single-business">
+      <div className="single-business" ref="businessCard">
         <div className="image-container"
           style={style} >
           <span className="business-score">
@@ -33,4 +43,4 @@ class BusinessCard extends React.Component {
   }
 }
 
-export default BusinessCard;
+export default withRouter(BusinessCard);

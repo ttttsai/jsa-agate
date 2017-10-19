@@ -1,0 +1,29 @@
+.display-image{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  height: 80%;
+  width: 60%;
+
+  .center {
+    transform: scale(1.1);
+  }
+
+  .slot {
+    width: calc(100% / 3);
+    height: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .slot:hover {
+    transform: scale(1.1);
+  }
+}
+
+

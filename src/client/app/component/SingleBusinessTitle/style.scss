@@ -1,0 +1,23 @@
+.display-business-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5em;
+  color: #fff;
+}
+
+.single-business-links-container {
+  width: 40em;
+}
+
+.single-business-links {
+  border: 1px solid #fff;
+  border-radius: .5em;
+  margin: 0 1em;
+  padding: .5em 1em;
+}
+
+.single-business-links:hover {
+  background-color: #f5a623; 
+  cursor: pointer;
+}

@@ -22,13 +22,13 @@ class HomePageMap extends React.Component {
   }
   initMap() {
     const center = {lat: 22.2222, lng: 114};
-    const mapProp = {
-      center: center,
-      zoom: 9,
-      mapTypeId: google.maps.MapTypeId.ROADMAP,
-    };
+    const zoom = this.props.mapType === 'detail' ? 15 : 9;
     const map = new google.maps.Map(
-      document.getElementsByClassName('google-map-component')[0], mapProp);
+      document.getElementsByClassName('google-map-component')[0], {
+        center: center,
+        zoom: zoom,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+      });
 
     this.setState({map: map});
     this.makeMarkers(this.props.businesses);
@@ -44,11 +44,20 @@ class HomePageMap extends React.Component {
       this.setState({markers: []});
     }
   }
+  setCenter(center) {
+    if (this.props.mapType === 'detail') {
+      this.state.map.setCenter(center);
+    }
+  }
   makeMarkers(businesses) {
     const that = this;
 
     if (businesses && this.state.map) {
       this.clearMarkers();
+      this.setCenter({
+        lat: businesses[0].latitude,
+        lng: businesses[0].longitude,
+      });
 
       const markers = businesses.map(function(value, index) {
         return new google.maps.Marker({

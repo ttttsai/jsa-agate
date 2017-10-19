@@ -143,6 +143,38 @@ app.post('/api/register', function(req, res) {
   }
 });
 
+function responseRequiredFieldsMissing(res) {
+  return res.status(HTTP_400).json(responseMessage.REQUIREDFIELDS_MISSING);
+}
+
+function responseCreateBusinessSuccess(res) {
+  return res.status(HTTP_201).json(responseMessage.CREATE_BUSINESS_SUCCESS);
+}
+
+function validateRequestBody(req) {
+  return (!req.body.name || !req.body.description ||
+    !req.body.imageUrl || !req.body.keyword
+    || !req.body.rating || !req.body.longitude
+    || !req.body.latitude);
+}
+
+app.post('/api/businesses', function(req, res) {
+  if (req.headers['content-type'] !== 'application/json') {
+    (responseContentTypeError(res));
+  } else if (validateRequestBody(req)) {
+    (responseRequiredFieldsMissing(res));
+  } else {
+    BusinessessEndpoint.createBusiness(req.body,
+      (dbResponseStatus) => {
+        if (dbResponseStatus === '500') {
+          responseOtherError(dbResponseStatus, res);
+        } else {
+          responseCreateBusinessSuccess(res);
+        }
+      });
+  }
+});
+
 app.listen(PORT, function() {
   console.log(`app is listening on port ${PORT}`);
 });

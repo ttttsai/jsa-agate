@@ -16,7 +16,7 @@ class SingleBusinessTitle extends React.Component {
       <div className="display-business-title">
         <div>
           <div className="single-business-name">
-            <h1>{this.props.title}</h1>
+            <h1 className="single-business-title-name">{this.props.title}</h1>
           </div>
           <div title={ratingScorePopUp}>
             <Rate allowHalf character="★" disabled

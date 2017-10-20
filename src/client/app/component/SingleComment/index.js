@@ -20,7 +20,8 @@ class SingleComment extends React.Component {
         </div>
         <div className="comment-details">
           <div className="comment-username">{username}</div>
-          <Rate character={character} disabled allowHalf defaultValue={score}/>
+          <Rate character={character} style={{fontSize: 14}}
+            disabled allowHalf defaultValue={score}/>
           <div className="comment-content">{commentSentences}</div>
         </div>
       </div>

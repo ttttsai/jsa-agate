@@ -9,6 +9,7 @@
 
   .center {
     transform: scale(1.1);
+    box-shadow: 1px 1px 10px 3px white;
   }
 
   .slot {
@@ -23,6 +24,7 @@
 
   .slot:hover {
     transform: scale(1.1);
+    box-shadow: 1px 1px 10px 3px white;
   }
 }
 

@@ -2,8 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5em;
   color: #fff;
+  border-bottom: solid 1px;
+  margin: 0 2em;
+  padding-bottom: 1em;
+}
+
+.single-business-title-name {
+  margin: 0;
 }
 
 .single-business-links-container {

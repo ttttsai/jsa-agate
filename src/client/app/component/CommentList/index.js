@@ -14,7 +14,7 @@ class CommentList extends React.Component {
 
     return (
       <div className="comment-list-container">
-        <h2 className="comment-list-title">Comments</h2>
+        <h2 className="comment-list-title">Reviews</h2>
         <div className="comment-list">
           {allComments};
         </div>

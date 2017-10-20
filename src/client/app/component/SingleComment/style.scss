@@ -1,5 +1,5 @@
 .single-comment-container {
-  padding: 1.5em;
+  padding: 1em;
   font-size: 1.1em;
   border: solid 0.011em;
   margin: 1em;
@@ -13,5 +13,14 @@
     padding:0 .625em;
     display: flex;
     flex-direction: column;
+
+    .comment-username{
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    .comment-content{
+      margin-top: 0.5em;
+    }
   }
 }

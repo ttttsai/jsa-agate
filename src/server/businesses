@@ -4,8 +4,8 @@
   "imageUrl": "./images/1.png",
   "keyword": "Nishi-nari Ward",
   "rating": 4.5,
-  "longitude": 114.0578650,
-  "latitude": 22.5430960,
+  "longitude": 113.951610,
+  "latitude": 22.530347,
   "comments":[
     {username: "John", comment: "Jaspas is consistent with good food, good ambience, great staff... What's not to like.", rating: 4.5},
     {username: "David", comment: "I came here after a real serious activity-packed day. Hiking and then swimming, of course then you need a good meal to finish it off!", rating: 4}
@@ -17,8 +17,8 @@
   "imageUrl": "./images/2.png",
   "keyword": "Nishi Ward",
   "rating": 4.1,
-  "longitude": 114.2622942,
-  "latitude": 22.0519021,
+  "longitude": 113.958391,
+  "latitude": 22.523529,
   "comments":[
     {username: "John", comment: "I had some scrambled eggs and latte for breakfast, nothing sophisticated but they were good and well presented. The place is very beautiful, nice atmosphere as well.", rating: 5},
     {username: "Elizabeth R.", comment: "How is this the top rated restaurant? I realise there are only 7 reviews but WTF? Have you 7 lost your damn minds? This place is not good. It's 'passable' if you are completely desperate. ", rating: 2}
@@ -30,8 +30,8 @@
   "imageUrl": "./images/3.png",
   "keyword": "Coffee",
   "rating": 4.8,
-  "longitude": 114.2313677,
-  "latitude": 22.3426965,
+  "longitude": 113.936891,
+  "latitude": 22.519763,
   "comments":[
     {username: "Rory B.", comment: "I love the industrial decor of this locations and think food is a bit better than the others too. The outdoor seating is generally pretty full on the weekends and provides great people watching even from inside.", rating: 4},
     {username: "Junella T.", comment: "It's located right in front of some bus stops in the very heart of Kennedy Town. They have indoor and outdoor seating. I like to sit half way indoors behind the benches so you aren't inhaling all the road dust lol", rating: 5}
@@ -43,8 +43,8 @@
   "imageUrl": "./images/4.png",
   "keyword": "Asian",
   "rating": 3.9,
-  "longitude": 113.7513683,
-  "latitude": 21.7885762,
+  "longitude": 113.939380,
+  "latitude": 22.531735,
   "comments":[
     {username: "Weiyi N.", comment: "Good western food in Shenzhen, the fries is very delicious. The location is pretty good it is very close to the Mtr station", rating: 4.5},
     {username: "Z V.", comment: "Great food, great service, good selection on menu, great American style atmosphere.", rating: 5}
@@ -56,8 +56,8 @@
   "imageUrl": "./images/5.png",
   "keyword": "Sushi",
   "rating": 4.5,
-  "longitude": 114.4695493,
-  "latitude": 21.8780153,
+  "longitude": 113.956632,
+  "latitude": 22.528207,
   "comments":[
     {username: "Leung T.", comment: "I am not French and cannot to know French bakeries, but this place was wonderful. Been here twice; once for a croissant and today for a late brunch - both great.", rating: 4},
     {username: "Jelena Z.", comment: "Maison Eric Kayser is an upscale-feel bakery offering a variety of baked goods, breads, and made-to-order sandwiches. Though I've been living in Happy Valley for over a month now, rarely do I venture to this corner of the neighborhood (Ventris Rd). So happy I did, because I just discovered my favorite new sandwich in HK!", rating: 5}
@@ -69,8 +69,8 @@
   "imageUrl": "./images/6.png",
   "keyword": "Nishi-nari Ward",
   "rating": 4.5,
-  "longitude": 113.60,
-  "latitude": 22.0194896,
+  "longitude": 113.952769,
+  "latitude": 22.517385,
   "comments":[
     {username: "Dannio C.", comment: "If you drink too much coffee as I do, you may want to refresh your tastebuds with this ice tea with tea jelly.   I understand this kind of 'bubble tea' is originated from Taiwan.", rating: 4},
     {username: "Bao D.", comment: "This is probably the worse Coco I've ever been to. Located on the Wan Chai strip with 3 employees in a tiny corner shop.I don't really bother reviewing with big chain bubble tea places as some places have amazing services, but others are utterly disgusting.", rating: 1}
@@ -82,8 +82,8 @@
   "imageUrl": "./images/1.png",
   "keyword": "Nishi-nari Ward",
   "rating": 4.5,
-  "longitude": 113.78,
-  "latitude": 22.018,
+  "longitude": 113.951439,
+  "latitude": 22.535104,
   "comments":[
     {username: "Emily P.", comment: "I ordered jasmine milk tea with pearls (it was $16 +$2 HKD for the pearls, so it's less than $3 USD). ", rating: 5},
     {username: "Caroline C.", comment: "This place is awesome. It is situated at a corner and has a lot of variety of bubble tea. I ordered the 3 gem which consists of tapioca, jelly, and lychee?", rating: 5}

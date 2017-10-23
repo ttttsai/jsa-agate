@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
             <input name="username" required placeholder="Username" />
             <input type="password" name="password" required
               placeholder="Password"/>
-            <input type="submit" value="login"/>
+            <input type="submit" value="Log in"/>
           </form>
           <button onClick={this.goToRegisterPage.bind(this)}>Register</button>
         </Spin>

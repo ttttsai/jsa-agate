@@ -1,26 +1,26 @@
 .single-comment-container {
-  padding: 1em;
-  font-size: 1.1em;
-  border: solid 0.011em;
-  margin: 1em;
-  display: flex;
-  justify-content: flex-start;
   align-items: flex-start;
+  border: solid .011em;
   color: #fff;
+  display: flex;
+  font-size: 1.1em;
+  justify-content: flex-start;
+  margin: 1em;
+  padding: 1em;
 
-  .comment-details{
-    margin: 0 .625em;
-    padding:0 .625em;
+  .comment-details {
     display: flex;
     flex-direction: column;
+    margin: 0 .625em;
+    padding: 0 .625em;
 
-    .comment-username{
+    .comment-username {
       font-size: 1.3em;
       font-weight: bold;
     }
 
-    .comment-content{
-      margin-top: 0.5em;
+    .comment-content {
+      margin-top: .5em;
     }
   }
 }

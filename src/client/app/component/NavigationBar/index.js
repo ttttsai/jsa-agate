@@ -13,8 +13,6 @@ class NavigationBar extends React.Component {
           <a href="#" className="nav-link-origin">Restaurants</a>
           <a href="#" className="nav-link-origin">Nightlife</a>
           <a href="#" className="nav-link-origin">Home Service</a>
-          <a href="#" className="nav-link-origin">Write a review
-            <img className="comment-img" src="./images/edit.png"/></a>
         </nav>
       </div>
     );

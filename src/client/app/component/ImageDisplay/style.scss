@@ -1,20 +1,20 @@
-.display-image{
+.display-image {
+  align-content: center;
+  align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
   height: 80%;
+  justify-content: space-between;
   width: 60%;
 
   .center {
+    box-shadow: 1px 1px 10px 3px #fff;
     transform: scale(1.1);
-    box-shadow: 1px 1px 10px 3px white;
   }
 
   .slot {
-    width: calc(100% / 3);
     height: 100%;
+    width: calc(100% / 3);
 
     img {
       height: 100%;
@@ -23,9 +23,8 @@
   }
 
   .slot:hover {
+    box-shadow: 1px 1px 10px 3px #fff;
     transform: scale(1.1);
-    box-shadow: 1px 1px 10px 3px white;
   }
 }
-
 

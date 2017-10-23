@@ -11,22 +11,11 @@ class BusinessCard extends React.Component {
 
       this.props.history.push('/business/' + id);
     }.bind(this));
-
-    let imageContainer = this.refs.imageContainer;
-    let businessName = this.refs.businessName;
-
-    imageContainer.addEventListener('mouseover', function(event) {
-      businessName.classList.remove('hideBusinessName');
-    });
-
-    imageContainer.addEventListener('mouseout', function(event) {
-      businessName.classList.add('hideBusinessName');
-    });
   }
   render() {
     let data = this.props.itemInfo;
     let score = Math.floor(data.rating);
-    let style = {background: 'url(' + data.imageUrl + ')'};
+    let style = {'background-image': 'url(' + data.imageUrl + ')'};
 
     data.score = '★'.repeat(score);
 
@@ -36,7 +25,7 @@ class BusinessCard extends React.Component {
           style={style} >
           <span className="business-score">
             {data.score}</span>
-          <span className="business-name hideBusinessName" ref="businessName">
+          <span className="business-name" ref="businessName">
             {data.name}</span>
         </div>
         <p className="business-title">

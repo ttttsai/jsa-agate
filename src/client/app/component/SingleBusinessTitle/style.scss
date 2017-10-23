@@ -1,9 +1,9 @@
 .display-business-title {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  color: #fff;
   border-bottom: solid 1px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
   margin: 0 2em;
   padding-bottom: 1em;
 }
@@ -28,6 +28,6 @@
 }
 
 .single-business-links:hover {
-  background-color: #f5a623; 
+  background-color: #f5a623;
   cursor: pointer;
 }

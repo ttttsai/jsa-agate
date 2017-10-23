@@ -1,0 +1,18 @@
+.detail-page-map-container {
+  padding: 5px;
+  box-sizing: border-box;
+  background: #fff;
+  height: 100%;
+  width: 35%;
+
+  .google-map-component {
+    height: 70%;
+    width: 100%;
+    border: 1px solid gray;
+  }
+
+  p {
+    font-size: small;
+    margin: 10px 0;
+  }
+}

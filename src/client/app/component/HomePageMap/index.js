@@ -50,6 +50,28 @@ class HomePageMap extends React.Component {
       this.setState({mapCenter: center});
     }
   }
+  addMarkerListener(marker, value) {
+    let that = this;
+    let infowindow = new google.maps.InfoWindow({content: value.name});
+
+    marker.addListener('mouseover', function() {
+      infowindow.open(that.state.map, marker);
+    });
+    marker.addListener('mouseout', function() {
+      infowindow.close();
+    });
+    marker.addListener('click', function(evt) {
+      let infoDetailWindow = new google.maps.InfoWindow({content: value.name});
+
+      that.state.map.setZoom(15);
+      that.state.map.panTo(marker.getPosition());
+      infoDetailWindow.addListener('closeclick', function(event) {
+        that.state.map.panTo(that.state.mapCenter);
+        that.state.map.setZoom(14);
+      });
+      infoDetailWindow.open(that.state.map, marker);
+    });
+  }
   createMarker(value) {
     const that = this;
     let marker = new google.maps.Marker({
@@ -58,29 +80,13 @@ class HomePageMap extends React.Component {
       animation: google.maps.Animation.DROP,
     });
 
-    let infowindow = new google.maps.InfoWindow({content: value.name});
-    marker.addListener('mouseover', function() {
-      infowindow.open(that.state.map, marker);
-    });
-
-    marker.addListener('mouseout', function() {
-      infowindow.close();
-    });
-    marker.addListener('click', function() {
-      let infowindow = new google.maps.InfoWindow({content: value.name});
-
-      that.state.map.setZoom(15);
-      that.state.map.setCenter(marker.getPosition());
-      infowindow.addListener('closeclick', function(event) {
-        that.state.map.panTo(that.state.mapCenter);
-        that.state.map.setZoom(14);
-      });
-      infowindow.open(that.state.map, marker);
-    });
+    if (that.props.mapType !== 'detail') {
+      that.addMarkerListener(marker, value);
+    }
     return marker;
   }
   makeMarkers(businesses) {
-    if (businesses && this.state.map) {
+    if (businesses && businesses.length > 0 && this.state.map) {
       this.clearMarkers();
       this.setCenter({
         lat: businesses[0].latitude,

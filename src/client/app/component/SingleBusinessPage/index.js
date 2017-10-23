@@ -1,7 +1,7 @@
 import React from 'react';
 import SingleBusinessTitle from '../SingleBusinessTitle';
 import HomePageHeader from '../HomePageHeader';
-import HomePageMap from '../HomePageMap';
+import SingleBusinessMapContainer from '../SingleBusinessMapContainer';
 import ImageDisplay from '../ImageDisplay';
 import CommentList from '../CommentList';
 import notification from 'antd/lib/notification';
@@ -43,16 +43,14 @@ class SingleBusinessPage extends React.Component {
     });
   }
   render() {
-    const mapType = 'detail';
-
     return (
       <div className="single-business-page">
         <HomePageHeader/>
         <SingleBusinessTitle title={this.state.businessDetail.name}
           rating={this.state.businessDetail.rating}/>
         <div className="display-business">
-          <HomePageMap businesses=
-            {[this.state.businessDetail]} mapType={mapType}/>
+          <SingleBusinessMapContainer
+            businessDetail={this.state.businessDetail} />
           <ImageDisplay/>
         </div>
         <CommentList comments={this.state.businessDetail.comments}/>

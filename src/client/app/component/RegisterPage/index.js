@@ -9,7 +9,7 @@ class RegisterPage extends React.Component {
     super(props);
     this.state = {
       'loading': false,
-      'successRegister': false,
+      'successRegister': localStorage.getItem('Authorization') !== null,
       'formHasError': false,
     };
   }

@@ -11,8 +11,8 @@ const BusinessessEndpoint = require('./business-endpoint');
 const login = require('./login');
 const loginStatusCode = require('./status-code');
 const {
-  HTTP_200, HTTP_201, HTTP_400, HTTP_403, HTTP_404,
-  HTTP_409, HTTP_500,
+  HTTP_200, HTTP_201, HTTP_400, HTTP_401,
+  HTTP_403, HTTP_404, HTTP_409, HTTP_500,
 } = require('./http-status-code');
 const app = express();
 const DEFAULT_PORT = 3000;
@@ -20,6 +20,8 @@ const PORT = process.env.PORT || DEFAULT_PORT;
 const secret = 'epam jsa agate';
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const expressJWT = require('express-jwt');
+const jwtMiddleware = expressJWT({secret: secret});
 
 app.use(bodyParser.json());
 
@@ -172,6 +174,40 @@ app.post('/api/businesses', function(req, res) {
           responseCreateBusinessSuccess(res);
         }
       });
+  }
+});
+
+app.post('/api/businesses/:id/comments', jwtMiddleware,
+  function(req, res) {
+    if (req.headers['content-type'] !== 'application/json') {
+      responseContentTypeError(res);
+    } else if (req.body.rating === undefined) {
+      res.status(HTTP_400).json(
+        responseMessage.RATING_MISSING);
+    } else if (req.user.username) {
+      BusinessessEndpoint.createComment(req.params.id,
+        req.user.username, req.body,
+        (dbResponseStatus, commentId) => {
+          if (dbResponseStatus === '201') {
+            res.set('Location', '/api/business/' + req.params.id + '/comments/'
+            + commentId).status(HTTP_201).json(
+              responseMessage.CREATE_COMMENT_SUCCESS);
+          } else if (dbResponseStatus === '400') {
+            res.status(HTTP_404).json({error: 'User not found.'});
+          } else if (dbResponseStatus === '404') {
+            res.status(HTTP_404).json({error: 'Business not found.'});
+          } else {
+            responseOtherError(dbResponseStatus, res);
+          }
+        });
+    } else {
+      res.status(HTTP_401).json({error: 'Invalid signature.'});
+    }
+  });
+
+app.use(function(err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(err.status).json({error: err.message});
   }
 });
 

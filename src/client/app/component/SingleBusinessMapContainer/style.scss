@@ -1,14 +1,14 @@
 .detail-page-map-container {
-  padding: 5px;
-  box-sizing: border-box;
   background: #fff;
+  box-sizing: border-box;
   height: 100%;
+  padding: 5px;
   width: 35%;
 
   .google-map-component {
+    border: 1px solid #808080;
     height: 70%;
     width: 100%;
-    border: 1px solid gray;
   }
 
   p {

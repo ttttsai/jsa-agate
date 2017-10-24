@@ -13,6 +13,7 @@ $card-width: calc(100% / 3 - 20px);
   flex-direction: column;
   height: 22.1875em;
   margin: 10px;
+  position: relative;
   width: $card-width;
 }
 
@@ -73,20 +74,24 @@ $card-width: calc(100% / 3 - 20px);
 }
 
 .business-infor {
-  align-items: flex-end;
-  display: flex;
-  justify-content: space-between;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  padding: 3px 2px;
+  box-sizing: border-box;
 }
 
 .business-keywords {
   color: #adafb2;
+  float: left;
   font-size: 12px;
-  height: .875em;
   padding-left: .3em;
 }
 
 .business-more {
   color: $yellow;
+  float: right;
   font-size: .75em;
   height: .875em;
   padding-right: .3em;

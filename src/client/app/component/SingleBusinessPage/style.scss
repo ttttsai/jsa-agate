@@ -1,5 +1,6 @@
 .single-business-page {
   background-color: #4b4b4b;
+  min-height: 100vh;  		
 }
 
 .display-business {
@@ -9,10 +10,4 @@
   height: 18em;
   justify-content: space-between;
   padding: 2em 8em;
-
-  .google-map-component {
-    height: 100%;
-    overflow: scroll;
-    width: 35%;
-  }
 }

@@ -32,8 +32,8 @@ class CreatingNewCommentForm extends React.Component {
             method="POST" name="comment-info-form"
             onSubmit={onSubmit} onKeyPress = {this.handleKeyPress}>
             <div className="rating-container">
-              <Rate onChange={changeRating} character="★"
-                value={rating} />
+              <Rate allowHalf onChange={changeRating}
+                character="★" value={rating} />
               <span className="ant-rate-text">(Please give rates for this business)</span>
             </div>
             <textarea rows="4" cols="50" name="comment-input"

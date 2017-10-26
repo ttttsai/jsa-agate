@@ -2,10 +2,10 @@
   input#mySearch {
     display: none;
   }
-
-  .content-container {
-    background-color: #4b4b4b;
-    color: rgb(124, 46, 46);
+  main {
+    display: flex;
+    padding: 0 1.5em;
+    justify-content: center;
   }
 }
 

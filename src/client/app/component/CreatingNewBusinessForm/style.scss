@@ -7,6 +7,9 @@ $form-width: calc(100% - 2em);
   padding: 0 1em;
   width: 50%;
   font-size: 12px;
+  p {
+    font-size: initial;
+  }
   .business-info {
     display: flex;
     flex-direction: column;
@@ -15,6 +18,7 @@ $form-width: calc(100% - 2em);
   }
 
   input {
+    outline: 0;
     margin-bottom: 1em;
     font-size: 12px;
     padding: .3em;
@@ -22,6 +26,7 @@ $form-width: calc(100% - 2em);
   }
 
   textarea {
+    outline: 0;
     font-size: 12px;
     margin-bottom: 1em;
     border-radius: 5px;

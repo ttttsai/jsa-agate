@@ -12,6 +12,7 @@
     flex-direction: column;
     margin: 0 .625em;
     padding: 0 .625em;
+    pointer-events: none;
 
     .comment-username {
       font-size: 1.3em;

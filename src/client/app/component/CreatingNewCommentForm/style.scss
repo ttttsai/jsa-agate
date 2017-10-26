@@ -1,0 +1,99 @@
+$form-width: calc(100% - 2em);
+$form-height: calc(100% - 6em);
+$border: 1px solid #fff;
+
+.creating-new-comment-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 4.8125em);
+  color: #fff;
+
+  .ant-spin-nested-loading {
+    flex-basis: 40%;
+    height: 80%;
+
+    .ant-spin-container {
+      height: 100%;
+
+      .business-container {
+
+        h1 {
+          font-size: 2.5em;
+          margin: 0;
+        }
+
+        div {
+          pointer-events: none;
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
+
+          h2:after {
+            content: " ";
+            display: inline-block;
+            padding-right: 0.5em;
+          }
+
+          .ant-rate {
+            font-size: 2em;
+          }
+        }
+      }
+  
+      .comment-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: $form-width;
+        border: $border;
+        padding: 0 1em 1em 1em;
+        height: 80%;
+  
+        .rating-container {
+          border-bottom: $border;
+          
+          .ant-rate {
+            font-size: 1.5em;
+          }
+
+          .ant-rate-text {
+            font-size: 1.5em;
+            height: 1.5em;
+            padding-top: 0.5em
+          }
+        }
+  
+        textarea {
+          flex-basis: 50%;
+          font-size: 1.5em;
+        }
+    
+        input {
+          margin-bottom: 1em;
+          font-size: 1em;
+          padding: .3em;
+        }
+    
+        .comment-submit {
+          background: #f5a623;
+          border-radius: 12px;
+          font-family: Arial;
+          color: #ffffff;
+          font-size: 1em;
+          font-weight: bold;
+          padding: 10px 20px 10px 20px;
+          text-decoration: none;
+          width: 30%;
+          outline: none;
+        }
+  
+        .comment-submit:hover {
+          background: #f5a623;
+          text-decoration: none;
+        }
+      }
+    } 
+  }
+}

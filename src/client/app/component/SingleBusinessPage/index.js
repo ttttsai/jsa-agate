@@ -5,9 +5,9 @@ import SingleBusinessMapContainer from '../SingleBusinessMapContainer';
 import ImageDisplay from '../ImageDisplay';
 import CommentList from '../CommentList';
 import notification from 'antd/lib/notification';
-
 import 'antd/lib/notification/style/index.css';
 import './style.scss';
+import CreatingNewCommentPage from '../CreatingNewCommentPage';
 
 class SingleBusinessPage extends React.Component {
   constructor(props) {
@@ -15,10 +15,17 @@ class SingleBusinessPage extends React.Component {
     this.state = {
       'id': this.props.match.params.id,
       'businessDetail': {},
+      'commentPage': false,
     };
   }
-  componentWillMount() {
+  componentDidMount() {
     this.fetchBusinessesDetail();
+  }
+  componentWillUpdate(nextProps, nextStates) {
+    if (this.state.commentPage === true &&
+        nextStates.commentPage === false) {
+      this.fetchBusinessesDetail();
+    }
   }
   errorHandler(err) {
     notification.open({
@@ -42,12 +49,27 @@ class SingleBusinessPage extends React.Component {
       that.errorHandler(err);
     });
   }
+  goToCommentPage() {
+    let loginStatus = localStorage.getItem('Authorization') !== null;
+
+    if (loginStatus) {
+      this.setState({'commentPage': true});
+    } else {
+      this.errorHandler(new Error('You should login.'));
+    }
+  }
+
+  handleSubmitComment() {
+    this.setState({'commentPage': false});
+  }
   render() {
-    return (
+    const commentPage = this.state.commentPage;
+
+    return commentPage ? (<CreatingNewCommentPage businessDetail={this.state.businessDetail} handleSubmitComment={this.handleSubmitComment.bind(this)}/>) : (
       <div className="single-business-page">
         <HomePageHeader/>
         <SingleBusinessTitle title={this.state.businessDetail.name}
-          rating={this.state.businessDetail.rating}/>
+          rating={this.state.businessDetail.rating} goToCommentPage={this.goToCommentPage.bind(this)}/>
         <div className="display-business">
           <SingleBusinessMapContainer
             businessDetail={this.state.businessDetail} />

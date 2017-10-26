@@ -1,12 +1,11 @@
 .single-comment-container {
   align-items: flex-start;
-  border: solid .011em;
-  color: #fff;
   display: flex;
   font-size: 1.1em;
   justify-content: flex-start;
   margin: 1em;
-  padding: 1em;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 1em;
 
   .comment-details {
     display: flex;

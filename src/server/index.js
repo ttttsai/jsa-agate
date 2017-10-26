@@ -60,7 +60,7 @@ app.get('/api/business/:id', function(req, res) {
   });
 });
 
-app.get(['/', '/login', '/register', '/business/:id'], (req, res) => {
+app.get(['/', '/login', '/register', '/business/:id', '/create-business'], (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../dist/index.html'));
 });
 
@@ -155,10 +155,10 @@ function responseCreateBusinessSuccess(res) {
 }
 
 function validateRequestBody(req) {
-  return (!req.body.name || !req.body.description ||
-    !req.body.imageUrl || !req.body.keyword
-    || !req.body.rating || !req.body.longitude
-    || !req.body.latitude);
+  return (!req.body.name || !req.body.description
+    || !req.body.address || !req.body.phone
+    || !req.body.keyword || !req.body.longitude 
+    || !req.body.latitude || !req.body.images);
 }
 
 app.post('/api/businesses', function(req, res) {

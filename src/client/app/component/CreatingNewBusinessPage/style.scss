@@ -1,0 +1,27 @@
+.creating-new-business {
+  height: 100vh;
+  main {
+    height: calc(100% - 4.8125em);
+  }
+  .create-page-header-infor {
+    padding: 2em;
+    font-size: 1.5em;
+  }
+  .content-container {
+    display: flex;
+    padding: 0 1.5em;
+  
+    .creating-new-map{
+      display: flex;
+      justify-content: center;
+      width: 50%;
+      margin: 2em;
+    
+      .google-map-component {
+        width:100%;
+        height:100%;
+        overflow: visible;
+      }
+    }
+  }
+}

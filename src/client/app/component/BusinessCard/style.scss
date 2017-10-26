@@ -1,11 +1,11 @@
-$border: 1px solid #000;
+$border: 1px solid #e6e6e6;
 $red: #d93738;
 $yellow: #f8e71c;
 $white: #fff;
 $card-width: calc(100% / 3 - 20px);
 
 .single-business {
-  background-color: #282828;
+  background-color: #f2f2f2;
   border: $border;
   cursor: pointer;
   display: flex;
@@ -15,6 +15,9 @@ $card-width: calc(100% / 3 - 20px);
   margin: 10px;
   position: relative;
   width: $card-width;
+}
+.single-business:hover {
+  background: #d8d8d8;
 }
 
 .image-container {
@@ -52,7 +55,6 @@ $card-width: calc(100% / 3 - 20px);
 }
 
 .business-title {
-  color: $white;
   font-size: .875em;
   height: 1.0625em;
   padding-left: .3em;
@@ -60,7 +62,6 @@ $card-width: calc(100% / 3 - 20px);
 
 .business-description {
   -webkit-box-orient: vertical;
-  color: #adafb2;
   display: -webkit-box !important;
   font-size: .75em;
   height: 1.9em;
@@ -83,7 +84,6 @@ $card-width: calc(100% / 3 - 20px);
 }
 
 .business-keywords {
-  color: #adafb2;
   float: left;
   font-size: 12px;
   padding-left: .3em;

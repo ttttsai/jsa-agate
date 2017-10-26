@@ -14,24 +14,81 @@ function loadJS(src) {
 class HomePageMap extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {map: undefined, markers: []};
+    let mapCenter = 14;
+
+    switch (props.mapType) {
+    case 'detail':
+      mapCenter = 15;
+      break;
+    case 'create':
+      mapCenter = 12;
+      break;
+    }
+    this.state = {
+      map: undefined,
+      markers: [],
+      mapCenter: mapCenter,
+      markerForCreatePage: undefined,
+    };
   }
   componentDidMount() {
     window.initMap = this.initMap.bind(this);
-    loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyAHP4cn0A4W4VIudAlmHmpAakBvbmcR5fY&callback=initMap');
+    loadJS('http://maps.google.cn/maps/api/js?key=AIzaSyAHP4cn0A4W4VIudAlmHmpAakBvbmcR5fY&callback=initMap&language=en');
+  }
+  getRealAddress(position, callback) {
+    const geocoder = new google.maps.Geocoder;
+    const latlng = {lat: position.lat(), lng: position.lng()};
+
+    geocoder.geocode({'location': latlng}, function(results, status) {
+      if (status === 'OK' && results[0]) {
+        callback(position, results[0].formatted_address);
+      }
+      callback(position);
+    });
+  }
+
+  addMapEventListner() {
+    const map = this.state.map;
+    const that = this;
+
+    map.addListener('click', function(e) {
+      that.getRealAddress(e.latLng, that.props.clickHandlerForCreate);
+
+      that.removePreviousMarker();
+      that.placeMarker(e.latLng);
+    });
+  }
+  removePreviousMarker() {
+    const {markerForCreatePage} = this.state;
+
+    if (markerForCreatePage) {
+      markerForCreatePage.setMap(null);
+    }
+  }
+  placeMarker(position) {
+    const map = this.state.map;
+    const marker = new google.maps.Marker({
+      position: position,
+      map: map,
+    });
+
+    this.setState({markerForCreatePage: marker});
   }
   initMap() {
     const center = {lat: 22.528113, lng: 113.946343};
-    const zoom = this.props.mapType === 'detail' ? 15 : 14;
     const map = new google.maps.Map(
       document.getElementsByClassName('google-map-component')[0], {
         center: center,
-        zoom: zoom,
+        zoom: this.state.mapCenter,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
       });
 
-    this.setState({map: map, mapCenter: center});
-    this.makeMarkers(this.props.businesses);
+    this.setState({map: map});
+    if (this.props.mapType === 'create') {
+      this.addMapEventListner();
+    } else {
+      this.makeMarkers(this.props.businesses);
+    }
   }
   componentWillReceiveProps(nextProps) {
     this.makeMarkers(nextProps.businesses);

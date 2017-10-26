@@ -1,8 +1,11 @@
+@import '../../scss/variables';
+
 .home-page-header {
   align-items: center;
-  background: linear-gradient(0deg, #4b4b4b 30%, #000);
+  color: #fff;
+  background-color: $deeperRed;
   display: flex;
-  height: 4.8125em;
+  height: $homePageHeaderHeight;
   justify-content: space-between;
   padding: 0 1.5em;
 

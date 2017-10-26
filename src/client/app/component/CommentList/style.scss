@@ -1,8 +1,13 @@
-.comment-list-title {
-  color: #fff;
-  padding: 0 1em;
-}
-
-.comment-list {
-  padding: 1em 5em;
+.comment-list-container {
+  background: #fff;
+  padding-top: 1em; 
+  h2 {
+    margin: 0;
+  }
+  .comment-list-title {
+    padding: 0 1em;
+  }
+  .comment-list {
+    padding: 1em 5em;
+  }
 }

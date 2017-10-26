@@ -4,7 +4,7 @@ import './style.scss';
 class NavigationBar extends React.Component {
   render() {
     return (
-      <div>
+      <div className="home-page-navigation-container">
         <div className="nav-title">
           <h1>Browsing Shenzhen</h1>
         </div>

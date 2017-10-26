@@ -4,6 +4,7 @@ import HomePage from '../HomePage';
 import LoginPage from '../LoginPage';
 import RegisterPage from '../RegisterPage';
 import SingleBusinessPage from '../SingleBusinessPage';
+import CreatingNewBusinessPage from '../CreatingNewBusinessPage';
 import './style.scss';
 
 class App extends React.Component {
@@ -14,6 +15,7 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/login" component={LoginPage} />
           <Route path="/register" component={RegisterPage} />
+          <Route path="/create-business" component={CreatingNewBusinessPage} />
           <Route path="/business/:id" component={SingleBusinessPage} />
         </div>
       </Router>

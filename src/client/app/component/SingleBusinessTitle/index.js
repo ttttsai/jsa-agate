@@ -23,13 +23,11 @@ class SingleBusinessTitle extends React.Component {
               value={numberOfStar} />
           </div>
         </div>
-        <div>
-          <div className="single-business-links-container">
-            <a className="single-business-links" onClick={this.props.goToCommentPage}>Write a Review</a>
-            <a className="single-business-links">Add Photo</a>
-            <a className="single-business-links">Share</a>
-            <a className="single-business-links">Bookmark</a>
-          </div>
+        <div className="single-business-links-container">
+          <a onClick={this.props.goToCommentPage}>Write a Review</a>
+          <a>Add Photo</a>
+          <a>Share</a>
+          <a>Bookmark</a>
         </div>
       </div>
     );

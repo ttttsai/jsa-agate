@@ -1,10 +1,11 @@
 import React from 'react';
 import './style.scss';
-import * as imagesJson from './imagesForTest.json';
-
-const imagesList = imagesJson.imagesUrl;
 
 class ImageDisplay extends React.Component {
+  constructor(props) {
+    super(props);
+    this.imagesErrorHanlder = this.imagesErrorHanlder.bind(this);
+  }
   componentDidMount() {
     let imgContainer = document.getElementsByClassName('display-image')[0];
 
@@ -20,17 +21,27 @@ class ImageDisplay extends React.Component {
       center.classList.add('center');
     });
   }
+  imagesErrorHanlder(e) {
+    e.target.src = '/images/no_image_available.png';
+  }
   render() {
+    const images = this.props.images ||
+     [
+       '/images/no_image_available.png',
+       '/images/no_image_available.png',
+       '/images/no_image_available.png',
+     ];
+
     return (
       <div className="display-image">
         <div className="slot">
-          <img src={imagesList[0]}/>
+          <img onError={this.imagesErrorHanlder} src={images[1]}/>
         </div>
         <div className="slot center">
-          <img src={imagesList[1]}/>
+          <img onError={this.imagesErrorHanlder} src={images[0]}/>
         </div>
         <div className="slot">
-          <img src={imagesList[2]}/>
+          <img onError={this.imagesErrorHanlder} src={images[2]}/>
         </div>
       </div>
     );

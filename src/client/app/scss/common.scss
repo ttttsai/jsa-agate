@@ -8,9 +8,10 @@ $header-height: 4.8125em;
 }
 
 @mixin login-signup-form-box {
-  background-color: #eee;
+  background-color: #fff;
   border-radius: 3px;
-  box-shadow: -8px 31px 71px 3px rgba(10, 8, 13, 1);
+  border: 1px solid #e6e6e6;
+  box-shadow: -8px 31px 71px 3px #d8d8d8;
   margin: 0 auto;
   min-width: calc(260px - 2rem);
   padding: 1rem;

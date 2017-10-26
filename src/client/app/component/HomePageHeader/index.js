@@ -10,6 +10,8 @@ class HomePageHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {'isLoggedIn': localStorage.getItem('Authorization') !== null};
+    this.submitHandler = this.submitHandler.bind(this);
+    this.valueChangeHandler = this.valueChangeHandler.bind(this);
     this.onClickHeaderLogBtn = this.onClickHeaderLogBtn.bind(this);
     this.logOut = this.logOut.bind(this);
   }
@@ -85,11 +87,14 @@ class HomePageHeader extends React.Component {
       <div className="home-page-header">
         <div className="home-page-header-left">
           <div className="menu" ref="menuButton"></div>
-          <form className="header" onSubmit={this.submitHandler.bind(this)}>
-            <input className="search" type="search" id="mySearch"
-              placeholder="Search"
-              onInput={this.valueChangeHandler.bind(this)}/>
-          </form>
+          {this.props.headerType === 'create' ?
+            (<div className="create-page-header-infor">
+              for Business Owners</div>) :
+            (<form className="header" onSubmit={this.submitHandler}>
+              <input className="search" type="search" id="mySearch"
+                placeholder="Search"
+                onInput={this.valueChangeHandler}/>
+            </form>)}
         </div>
         <div className="home-page-header-right">
           {button}

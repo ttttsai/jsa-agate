@@ -85,15 +85,30 @@ function findBusinessAndPostReview(db, searchId, username, body, callback) {
     id: new ObjectID(),
   };
 
-  businessCollection.update(filter, {$addToSet: {comments: commentInfo}},
-    function(err, result, state) {
-      if (result.result.nModified !== 1) {
-        return callback('404');
-      } else if (result.result.nModified === 1 && !err) {
-        return callback('201', commentInfo.id);
-      }
-      return callback('500');
-    });
+  businessCollection.findOne(filter, function(err, docs) {
+    if (err === null && docs !== null) {
+      let commentsNumber = docs.comments && docs.comments.length || 0;
+      let afterRating = (docs.rating * commentsNumber + body.rating) /
+        (commentsNumber + 1);
+
+      businessCollection.update(filter,
+        {
+          $addToSet: {comments: commentInfo},
+          $set: {rating: afterRating}
+        },
+        function(err, result, state) {
+          if (result.result.nModified !== 1) {
+            return callback('404');
+          } else if (result.result.nModified === 1 && !err) {
+            return callback('201', commentInfo.id);
+          }
+          return callback('500');
+        });
+    } else {
+      return callback('400');
+    }
+  });
+  
 }
 
 function findExistingUserAndPostReview(db, searchId, username, body, callback) {

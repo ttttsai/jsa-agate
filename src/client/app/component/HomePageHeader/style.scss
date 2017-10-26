@@ -16,13 +16,16 @@
   }
 
   .home-page-header-right {
+    cursor: pointer;
     button {
-      background: transparent;
       border: 0;
       color: #fff;
-      cursor: pointer;
-      font-size: 1.4em;
+      font-size: 1em;
       outline: 0;
+      font-weight: bold;
+      padding-right: 1em;
+      background: no-repeat right/22% url("./arrow1.png");
+      display: inline-block;
     }
   }
 

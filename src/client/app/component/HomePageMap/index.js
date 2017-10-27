@@ -14,20 +14,20 @@ function loadJS(src) {
 class HomePageMap extends React.Component {
   constructor(props) {
     super(props);
-    let mapCenter = 14;
+    let mapZoom = 13;
 
     switch (props.mapType) {
     case 'detail':
-      mapCenter = 15;
+      mapZoom = 15;
       break;
     case 'create':
-      mapCenter = 12;
+      mapZoom = 12;
       break;
     }
     this.state = {
       map: undefined,
       markers: [],
-      mapCenter: mapCenter,
+      mapZoom: mapZoom,
       markerForCreatePage: undefined,
     };
   }
@@ -79,11 +79,11 @@ class HomePageMap extends React.Component {
     const map = new google.maps.Map(
       document.getElementsByClassName('google-map-component')[0], {
         center: center,
-        zoom: this.state.mapCenter,
+        zoom: this.state.mapZoom,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
       });
 
-    this.setState({map: map});
+    this.setState({map: map, mapCenter: center});
     if (this.props.mapType === 'create') {
       this.addMapEventListner();
     } else {
@@ -124,7 +124,7 @@ class HomePageMap extends React.Component {
       that.state.map.panTo(marker.getPosition());
       infoDetailWindow.addListener('closeclick', function(event) {
         that.state.map.panTo(that.state.mapCenter);
-        that.state.map.setZoom(14);
+        that.state.map.setZoom(that.state.mapZoom);
       });
       infoDetailWindow.open(that.state.map, marker);
     });

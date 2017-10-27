@@ -1,91 +1,114 @@
 {
-  "name": "Starbucks",
-  "description": "We sell overpriced coffee.",
-  "imageUrl": "./images/1.png",
-  "keyword": "Nishi-nari Ward",
-  "rating": 4.5,
-  "longitude": 113.951610,
-  "latitude": 22.530347,
-  "comments":[
-    {username: "John", comment: "Jaspas is consistent with good food, good ambience, great staff... What's not to like.", rating: 4.5},
-    {username: "David", comment: "I came here after a real serious activity-packed day. Hiking and then swimming, of course then you need a good meal to finish it off!", rating: 4}
-  ]
-}
-{
-  "name": "Tesco Express",
+  "name": "Pacific Cafe",
   "description": "Every little helps",
-  "imageUrl": "./images/2.png",
-  "keyword": "Nishi Ward",
-  "rating": 4.1,
-  "longitude": 113.958391,
-  "latitude": 22.523529,
+  "address" : "85 Haide 3rd Rd, HouHai, Nanshan Qu, Shenzhen Shi, Guangdong Sheng, China, 518054",
+  "phone" : "+86 755 8663 6905",
+  "keyword": "Coffee Deserts",
+  "rating": 4.5,
+  "longitude": 113.9375406,
+  "latitude": 22.5276464,
+  "images" : [
+    "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/FE9593C0-3768-4F03-A286-A5DF4EFC0DFB.jpeg",
+    "https://b.zmtcdn.com/data/pictures/chains/5/18178075/82057d925bd5338187048645118804c2.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+    "http://4.bp.blogspot.com/-jxkZCWWr7rE/UCKA2Eh25iI/AAAAAAAAaFg/t_GuzCEVIss/s1600/m2.jpg"
+  ],
   "comments":[
     {username: "John", comment: "I had some scrambled eggs and latte for breakfast, nothing sophisticated but they were good and well presented. The place is very beautiful, nice atmosphere as well.", rating: 5},
     {username: "Elizabeth R.", comment: "How is this the top rated restaurant? I realise there are only 7 reviews but WTF? Have you 7 lost your damn minds? This place is not good. It's 'passable' if you are completely desperate. ", rating: 2}
   ]
 }
 {
-  "name": "Pret A Manger",
-  "description": "Organic Coffee, Natural Food",
-  "imageUrl": "./images/3.png",
-  "keyword": "Coffee",
-  "rating": 4.8,
-  "longitude": 113.936891,
-  "latitude": 22.519763,
+  "name": "Fullness Vege",
+  "description": "Good for kids",
+  "address" : "China, Guangdong Sheng, Shenzhen Shi, Nanshan Qu, NanYou, Nanguang Rd, China, 518052",
+  "phone" : "+86 755 2645 5630",
+  "keyword": "Food Vegetarian",
+  "rating": 4.1,
+  "longitude": 113.9245324,
+  "latitude": 22.5236668,
+  "images" : [
+    "http://www.buro247.my/local/images/buro/MandarinGrillComp-Starter2.jpg",
+    "http://farm8.staticflickr.com/7379/10772802935_6d0ca1dbc1_z.jpg",
+    "http://robbreport.com.my/wp-content/uploads/sites/2/2016/11/xPASS_GrandHyatt_Xmas16_1-580x360.jpg.pagespeed.ic.Lz1GlcmWGH.jpg"
+  ],
   "comments":[
-    {username: "Rory B.", comment: "I love the industrial decor of this locations and think food is a bit better than the others too. The outdoor seating is generally pretty full on the weekends and provides great people watching even from inside.", rating: 4},
-    {username: "Junella T.", comment: "It's located right in front of some bus stops in the very heart of Kennedy Town. They have indoor and outdoor seating. I like to sit half way indoors behind the benches so you aren't inhaling all the road dust lol", rating: 5}
+    {username: "John", comment: "Very nice restaurant good food. Very good solution for vegetarians!", rating: 5},
+    {username: "Elizabeth R.", comment: "A nice vegetarian restaurant in the Buddhist tradition. Many dishes pretend to be meat but are not.", rating: 4}
   ]
 }
 {
-  "name": "itsu",
-  "description": "Delicious, healthy, Asian inspired food.",
-  "imageUrl": "./images/4.png",
-  "keyword": "Asian",
-  "rating": 3.9,
-  "longitude": 113.939380,
-  "latitude": 22.531735,
-  "comments":[
-    {username: "Weiyi N.", comment: "Good western food in Shenzhen, the fries is very delicious. The location is pretty good it is very close to the Mtr station", rating: 4.5},
-    {username: "Z V.", comment: "Great food, great service, good selection on menu, great American style atmosphere.", rating: 5}
-  ]
-}
-{
-  "name": "Wasabi",
-  "description": "Konnichiwa! Wasabi offers fresh, authentic, handmade Japanese Sushi and Bento",
-  "imageUrl": "./images/5.png",
-  "keyword": "Sushi",
+  "name": "Tairyo Teppanyaki",
+  "description": "Good for kids",
+  "address" : "33 Wenxin 5th Rd, HouHai, Nanshan Qu, Shenzhen Shi, Guangdong Sheng, China, 518054",
+  "phone" : "+86 755 8628 7232",
+  "keyword": "Food Fish",
   "rating": 4.5,
-  "longitude": 113.956632,
-  "latitude": 22.528207,
+  "longitude": 113.95328960730694,
+  "latitude": 22.52367208872206,
+  "images" : [
+    "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/japan4.jpeg",
+    "http://farm6.static.flickr.com/5244/5225397356_0088ef0223.jpg",
+    "http://3.bp.blogspot.com/-Nn8DAv-Oqjs/U_RDZyyHLLI/AAAAAAAAbiI/2UmVcS3utzU/s1600/DSC_0875.JPG"
+  ],
   "comments":[
-    {username: "Leung T.", comment: "I am not French and cannot to know French bakeries, but this place was wonderful. Been here twice; once for a croissant and today for a late brunch - both great.", rating: 4},
-    {username: "Jelena Z.", comment: "Maison Eric Kayser is an upscale-feel bakery offering a variety of baked goods, breads, and made-to-order sandwiches. Though I've been living in Happy Valley for over a month now, rarely do I venture to this corner of the neighborhood (Ventris Rd). So happy I did, because I just discovered my favorite new sandwich in HK!", rating: 5}
+    {username: "John", comment: "Food, even the most basic services are usually not as air-conditioning.", rating: 5},
+    {username: "Elizabeth R.", comment: "sweat diners to eat only junk level, they are better than other stores this.", rating: 4}
   ]
 }
 {
-  "name": "wagamama",
-  "description": "from bowl to soul",
-  "imageUrl": "./images/6.png",
-  "keyword": "Nishi-nari Ward",
+  "name": "Little India",
+  "description": "Good for kids",
+  "address" : "China, Guangdong Sheng, Shenzhen Shi, Nanshan Qu, Houhaibin Rd, China, 518054",
+  "phone" : "+86 755 8655 2106",
+  "keyword": "India Vegetarian",
   "rating": 4.5,
-  "longitude": 113.952769,
-  "latitude": 22.517385,
+  "longitude": 113.9348355,
+  "latitude": 22.5169542,
+  "images" : [
+    "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/indiafood.jpg",
+    "https://i.pinimg.com/736x/42/d0/6d/42d06d3b0041cfcb6b27bb70dfb603c5--curry-ingredients-indian-foods.jpg",
+    "https://us.123rf.com/450wm/kaisorn/kaisorn1506/kaisorn150600052/41817126-asia-street-food-web-banner--korean-food--indian-food--vietnam-food-flat-design.jpg"
+  ],
   "comments":[
-    {username: "Dannio C.", comment: "If you drink too much coffee as I do, you may want to refresh your tastebuds with this ice tea with tea jelly.   I understand this kind of 'bubble tea' is originated from Taiwan.", rating: 4},
-    {username: "Bao D.", comment: "This is probably the worse Coco I've ever been to. Located on the Wan Chai strip with 3 employees in a tiny corner shop.I don't really bother reviewing with big chain bubble tea places as some places have amazing services, but others are utterly disgusting.", rating: 1}
+    {username: "John", comment: "Vegetarian food is available here in reasonable variety though they cook non-vegetarian food also.", rating: 5},
+    {username: "Elizabeth R.", comment: "Good to have India  food in Bantian,Shenzhen.", rating: 4}
   ]
 }
 {
-  "name": "My Old Dutch",
-  "description": "My Old Dutch, the original London pancake house, offers savoury and sweet pancakes as well as a selection of salads, traditional Dutch starters and desserts.",
-  "imageUrl": "./images/1.png",
-  "keyword": "Nishi-nari Ward",
+  "name": "Grand View Hotel",
+  "description": "Good for whole family",
+  "address" : "China, Guangdong Sheng, Shenzhen Shi, Nanshan Qu, HouHai, China, 518054",
+  "phone" : "+86 755 8626 8888",
+  "keyword": "Hotel",
   "rating": 4.5,
-  "longitude": 113.951439,
-  "latitude": 22.535104,
+  "longitude": 113.9478866639547,
+  "latitude": 22.519643542593176,
+  "images" : [
+    "http://3.bp.blogspot.com/-4FB0N5d5tAQ/TyaQqPFPiXI/AAAAAAAATR8/9-8dMGwALaQ/s1600/mg1.jpg",
+    "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/F14E4CC7-4D40-460D-8848-F1AF0E02FB11.jpeg",
+    "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/7854C80B-E54E-4E6B-9C31-38554687A37D.jpeg"
+  ],
   "comments":[
-    {username: "Emily P.", comment: "I ordered jasmine milk tea with pearls (it was $16 +$2 HKD for the pearls, so it's less than $3 USD). ", rating: 5},
-    {username: "Caroline C.", comment: "This place is awesome. It is situated at a corner and has a lot of variety of bubble tea. I ordered the 3 gem which consists of tapioca, jelly, and lychee?", rating: 5}
+    {username: "John", comment: "Well yeh its a great Hotel, service was fabulous although communication was a little difficult.", rating: 5},
+    {username: "Elizabeth R.", comment: "Very good value (4000 yuan for two rooms for three nights).", rating: 4}
+  ]
+}
+{
+  "name": "Starbucks Coffee",
+  "description": "Seattle-based coffeehouse chain known for its signature roasts, light bites and WiFi availability.",
+  "address" : "China, Guangdong Sheng, Shenzhen Shi, Nanshan Qu, HouHai, Wenxin 5th Rd, , China, 518054",
+  "phone" : "+86 755 8635 9969",
+  "keyword": "Coffee Deserts",
+  "rating": 4.5,
+  "longitude": 113.9372163,
+  "latitude": 22.5169599,
+  "images" : [
+    "https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Starbucks_Coffee_Logo.svg/1024px-Starbucks_Coffee_Logo.svg.png",
+    "https://www.reviewjournal.com/wp-content/uploads/2016/02/f7jhoenh-3500-2333_0.jpg",
+    "https://news.starbucks.com/uploads/images/Beverages/Mocha_Affogato_resized.JPG"
+  ],
+  "comments":[
+    {username: "John", comment: "Nice and clean shop, arrived Saturday around 7pm, not many people.", rating: 5},
+    {username: "Elizabeth R.", comment: "Too many people on weekends, usually quite relaxed, not very quiet, but there are a lot of beauty to see.", rating: 4}
   ]
 }

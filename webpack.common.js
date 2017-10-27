@@ -3,15 +3,11 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'inline-source-map',
   entry: './src/client/index.js',
   output: {
     path: path.resolve(__dirname, 'dist/app'),
     filename: 'bundle.js',
     publicPath: '/app/',
-  },
-  devServer: {
-    historyApiFallback: true,
   },
   module: {
     loaders: [{

@@ -13,9 +13,11 @@
     "lint:js": "eslint . --ext .js --color --ignore-pattern node_modules/",
     "lint:css": "stylelint src/client/**/*.scss --colors",
     "lint": "npm-run-all --sequential lint:js lint:css",
-    "build": "webpack -p --colors --config webpack.config.js",
+    "build": "webpack -p --colors --config webpack.prod.js",
+    "build:dev": "webpack -d --colors --config webpack.dev.js",
     "start:backend": "node -r dotenv/config ./src/server/index.js",
     "start": "npm-run-all --sequential build start:backend",
+    "start:dev": "npm-run-all --sequential build:dev start:backend",
     "heroku-prebuild": "npm install --only=dev",
     "dev:frontend": "webpack-dev-server --colors --content-base dist/ --inline --hot --port 3000",
     "dev:backend": "nodemon -r dotenv/config ./src/server/index.js"
@@ -51,7 +53,8 @@
     "stylelint": "^8.2.0",
     "stylelint-config-sass-guidelines": "^3.1.0",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.8.2"
+    "webpack-dev-server": "^2.8.2",
+    "webpack-merge": "^4.1.0"
   },
   "bugs": {
     "url": "https://github.com/greenfox-academy/epam-jsa-agate/issues"

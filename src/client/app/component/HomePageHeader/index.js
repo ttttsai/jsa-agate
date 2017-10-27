@@ -13,7 +13,7 @@ class HomePageHeader extends React.Component {
     this.submitHandler = this.submitHandler.bind(this);
     this.valueChangeHandler = this.valueChangeHandler.bind(this);
     this.onClickHeaderLogBtn = this.onClickHeaderLogBtn.bind(this);
-    this.logOut = this.logOut.bind(this);
+    this.handleMenuBtnClick = this.handleMenuBtnClick.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +39,13 @@ class HomePageHeader extends React.Component {
   redirectTopage(path) {
     this.props.history.push(path);
   }
+  handleMenuBtnClick(e) {
+    if (e.key === "1") {
+      this.logOut();
+    } else if (e.key === "2") {
+      this.redirectTopage.bind(this, '/create-business')();
+    }
+  }
   logOut() {
     localStorage.removeItem('Authorization');
     this.setState({'isLoggedIn': false});
@@ -47,7 +54,7 @@ class HomePageHeader extends React.Component {
     if (this.state.isLoggedIn) {
       this.logOut();
     } else {
-      this.redirectTopage.bind(this, '/login')();
+      this.redirectTopage.call(this, '/login');
     }
   }
   valueChangeHandler(event) {
@@ -55,33 +62,48 @@ class HomePageHeader extends React.Component {
 
     this.props.search(input)();
   }
-  render() {
-    let btnText = '';
+  getUserName() {
+    let btnText = 'Log In';
 
     if (this.state.isLoggedIn) {
       btnText = JSON.parse(atob(localStorage
         .getItem('Authorization').split('.')[1]))
         .username;
-    } else {
-      btnText = 'Log In';
     }
-    let button = null;
-    const menu = (
-      <Menu onClick={this.logOut}>
-        <Menu.Item key="1">Log Out</Menu.Item>
-      </Menu>);
+    return btnText;
+  }
+  getLogBtnType() {
+    let button = <button onClick={this.onClickHeaderLogBtn}>Log In</button>;
 
     if (this.state.isLoggedIn) {
-      button =
-        <Dropdown overlay={menu} trigger={['click']} size="small">
-          <button className="ant-dropdown-link">
-            {btnText}
-          </button>
-        </Dropdown>;
-    } else {
-      button = <button onClick={this.onClickHeaderLogBtn}>
-        {btnText}</button>;
+      const menu = (
+        <Menu onClick={this.handleMenuBtnClick}>
+          <Menu.Item key="2">
+            <button className="home-page-header-create-btn">
+              Create Business
+            </button>
+          </Menu.Item>
+          <Menu.Divider />
+          <Menu.Item key="1">
+            <button className="home-page-header-log-out-btn">
+              Log Out
+            </button>
+          </Menu.Item>
+        </Menu>);
+
+      button = <Dropdown overlay={menu} trigger={['click']}
+        size="small" placement="bottomRight">
+        <button className="ant-dropdown-link">
+          {JSON.parse(
+            atob(localStorage.getItem('Authorization').split('.')[1])
+          ).username}
+        </button>
+      </Dropdown>;
     }
+    return button;
+  }
+  render() {
+    const button = this.getLogBtnType();
 
     return (
       <div className="home-page-header">

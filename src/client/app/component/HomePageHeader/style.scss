@@ -1,5 +1,21 @@
 @import '../../scss/variables';
 
+.ant-dropdown-menu {
+  button {
+    border: 0;
+    padding-left: 1.5em;
+    outline: 0;
+    color: #898c8f;
+  }
+  .home-page-header-log-out-btn {
+    background: no-repeat left url("./sign-out-icon.svg");
+  }
+  .home-page-header-create-btn {
+    background: no-repeat left url("./create-new-business-icon.svg");
+  }
+}
+
+
 .home-page-header {
   align-items: center;
   color: #fff;
@@ -19,16 +35,21 @@
   }
 
   .home-page-header-right {
-    cursor: pointer;
+    button:hover {
+      cursor: pointer;
+    }
     button {
+      background: transparent;
       border: 0;
       color: #fff;
       font-size: 1em;
       outline: 0;
       font-weight: bold;
       padding-right: 1em;
-      background: no-repeat right/22% url("./arrow1.png");
       display: inline-block;
+    }
+    .ant-dropdown-link {
+      background: no-repeat right/22% url("./arrow1.png");
     }
   }
 

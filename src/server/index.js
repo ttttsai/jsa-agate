@@ -14,6 +14,7 @@ const {
   HTTP_200, HTTP_201, HTTP_400, HTTP_401,
   HTTP_403, HTTP_404, HTTP_409, HTTP_500,
 } = require('./http-status-code');
+const {getSignedUrlByAwsSdk} = require('./file-to-s3-upload');
 const app = express();
 const DEFAULT_PORT = 3000;
 const PORT = process.env.PORT || DEFAULT_PORT;
@@ -205,6 +206,24 @@ app.post('/api/businesses/:id/comments', jwtMiddleware,
       res.status(HTTP_401).json({error: 'Invalid signature.'});
     }
   });
+
+app.get('/sign-s3', (req, res) => {
+  const {fileName, fileType} = req.query;
+  const task = 'putObject';
+  const s3Params = {
+    Bucket: process.env.S3_BUCKET,
+    Key: fileName,
+    ContentType: fileType,
+    ACL: 'public-read',
+  };
+
+  getSignedUrlByAwsSdk(task, s3Params, (data) => {
+    res.json({
+      signedRequest: data,
+      url: `https://${process.env.S3_BUCKET}.s3.amazonaws.com/${fileName}`,
+    });
+  })();
+});
 
 app.use(function(err, req, res, next) {
   if (err.name === 'UnauthorizedError') {

@@ -4,18 +4,78 @@ import Spin from 'antd/lib/spin';
 import 'antd/lib/spin/style/index.css';
 import './style.scss';
 
+import Upload from 'antd/lib/upload';
+import 'antd/lib/upload/style/index.css';
+
 class CreatingNewBusinessForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {loading: false};
+    this.state = {loading: false, imgList: []};
+    this.handleImageSubmit = this.handleImageSubmit.bind(this);
+    this.onSubmitTrigger = this.onSubmitTrigger.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.address) {
       this.setState({address: nextProps.address});
     }
   }
+
+  onSubmitTrigger(event) {
+    this.props.onSubmit(event, this.state.imgList);
+  }
+
+  getSignedRequest(file) {
+    return fetch(`/sign-s3?fileName=${file.name}&fileType=${file.type}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`${response.status}: ${response.statusText}`);
+        }
+        return response.json();
+      });
+  }
+
+  uploadFile(binaryFile, signedRequest, url) {
+    const options = {
+      method: 'PUT',
+      body: binaryFile,
+    };
+
+    return fetch(signedRequest, options)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`${response.status}: ${response.statusText}`);
+        }
+        return url;
+      });
+  }
+
+  uploadToS3(file) {
+    return this.getSignedRequest(file)
+      .then((json) => this.uploadFile(file, json.signedRequest, json.url))
+      .then((url) => {
+        return url;
+      }).catch((err) => {
+        console.error(err);
+        return null;
+      });
+  }
+
+  handleImageSubmit(file) {
+    const that = this;
+    let {imgList} = this.state;
+
+    this.uploadToS3(file.file)
+      .then((url) => {
+        imgList.push(url);
+        that.setState({imgList: imgList});
+      });
+  }
   render() {
-    const {loading, onSubmit, address} = this.props;
+    const {loading, address} = this.props;
+    const props = {
+      action: '/',
+      customRequest: this.handleImageSubmit,
+    };
 
     return (
       <div className="creating-new-business-form">
@@ -24,7 +84,7 @@ class CreatingNewBusinessForm extends React.Component {
           <p>Add information about your business below.</p>
           <form className="business-info"
             method="POST" name="business-info-form"
-            onSubmit={onSubmit}>
+            onSubmit={this.onSubmitTrigger}>
             <label htmlFor="business-name">Business Name</label>
             <input name="name" id="business-name"
               type="text" placeholder="Mel's Diner" required/>
@@ -42,9 +102,11 @@ class CreatingNewBusinessForm extends React.Component {
             <input name="key-words" id="business-key-words" required
               type="text" placeholder="Coffee Asian ..."/>
             <label htmlFor="image-url">Images url</label>
-            <textarea id="image-url" rows="3" placeholder=
-              "Highly recommend to input 3 images and seperate them into 3 lines."
-            required></textarea>
+            <Upload {...props}>
+              <button className="create-page-upload-btn">
+                Click to Upload
+              </button>
+            </Upload>
             <input className="business-submit"
               type="submit" value="Add business"/>
           </form>

@@ -18,25 +18,27 @@ class CreatingNewBusinessPage extends React.Component {
     this.submitHandler = this.submitHandler.bind(this);
     this.clickMapHandler = this.clickMapHandler.bind(this);
   }
-  submitHandler(event) {
-    this.setState({'loading': true});
+  submitHandler(event, imagesArr) {
     event.preventDefault();
-    let images = event.target.elements[5].value;
-    let imagesArr = images.split('\n');
-    while(imagesArr.length < 3) {
-      imagesArr.push('/images/no_image_available.png');
+    if (imagesArr.length === 0) {
+      this.errorHandler(new Error('Please at least upload one image.'));
+    } else {
+      this.setState({'loading': true});
+      while (imagesArr.length < 3) {
+        imagesArr.push('/images/no_image_available.png');
+      }
+  
+      this.submitData({
+        name: event.target.elements[0].value,
+        description: event.target.elements[1].value,
+        address: event.target.elements[2].value,
+        phone: event.target.elements[3].value,
+        keyword: event.target.elements[4].value,
+        longitude: this.state.longitute,
+        latitude: this.state.latitude,
+        images: imagesArr,
+      });
     }
-
-    this.submitData({
-      name: event.target.elements[0].value,
-      description: event.target.elements[1].value,
-      address: event.target.elements[2].value,
-      phone: event.target.elements[3].value,
-      keyword: event.target.elements[4].value,
-      longitude: this.state.longitute,
-      latitude: this.state.latitude,
-      images: imagesArr,
-    });
   }
   errorHandler(err) {
     notification.open({

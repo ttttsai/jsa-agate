@@ -43,4 +43,11 @@
 
 .single-business-rating {
   pointer-events: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  p {
+    margin-left: 1em;
+    font-size: smaller;
+  }
 }

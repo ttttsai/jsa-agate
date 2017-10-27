@@ -17,6 +17,8 @@ class SingleBusinessPage extends React.Component {
       'businessDetail': {},
       'commentPage': false,
     };
+    this.handleSubmitComment = this.handleSubmitComment.bind(this);
+    this.goToCommentPage = this.goToCommentPage.bind(this);
   }
   componentDidMount() {
     this.fetchBusinessesDetail();
@@ -65,11 +67,16 @@ class SingleBusinessPage extends React.Component {
   render() {
     const commentPage = this.state.commentPage;
 
-    return commentPage ? (<CreatingNewCommentPage businessDetail={this.state.businessDetail} handleSubmitComment={this.handleSubmitComment.bind(this)}/>) : (
+    return commentPage ? (
+      <CreatingNewCommentPage
+        businessDetail={this.state.businessDetail}
+        handleSubmitComment={this.handleSubmitComment.bind(this)}/>) : (
       <div className="single-business-page">
         <HomePageHeader/>
         <SingleBusinessTitle title={this.state.businessDetail.name}
-          rating={this.state.businessDetail.rating} goToCommentPage={this.goToCommentPage.bind(this)}/>
+          rating={this.state.businessDetail.rating}
+          phone ={this.state.businessDetail.phone}
+          goToCommentPage={this.goToCommentPage.bind(this)}/>
         <div className="display-business">
           <SingleBusinessMapContainer
             businessDetail={this.state.businessDetail} />

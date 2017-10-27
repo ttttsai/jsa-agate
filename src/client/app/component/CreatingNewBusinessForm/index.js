@@ -103,9 +103,9 @@ class CreatingNewBusinessForm extends React.Component {
               type="text" placeholder="Coffee Asian ..."/>
             <label htmlFor="image-url">Images url</label>
             <Upload {...props}>
-              <button className="create-page-upload-btn">
+              <div className="create-page-upload-btn">
                 Click to Upload
-              </button>
+              </div>
             </Upload>
             <input className="business-submit"
               type="submit" value="Add business"/>

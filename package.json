@@ -19,7 +19,7 @@
     "start": "npm-run-all --sequential build start:backend",
     "start:dev": "npm-run-all --sequential build:dev start:backend",
     "heroku-prebuild": "npm install --only=dev",
-    "dev:frontend": "webpack-dev-server --colors --content-base dist/ --inline --hot --port 3000",
+    "dev:frontend": "webpack-dev-server --colors --config webpack.dev.js --content-base dist/ --inline --hot --port 3000",
     "dev:backend": "nodemon -r dotenv/config ./src/server/index.js"
   },
   "repository": {

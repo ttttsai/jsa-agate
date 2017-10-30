@@ -62,9 +62,9 @@ class HomePageHeader extends React.Component {
     this.props.history.push(path);
   }
   handleMenuBtnClick(e) {
-    if (e.key === "1") {
+    if (e.key === '1') {
       this.logOut();
-    } else if (e.key === "2") {
+    } else if (e.key === '2') {
       this.redirectTopage.bind(this, '/create-business')();
     }
   }
@@ -82,7 +82,11 @@ class HomePageHeader extends React.Component {
   valueChangeHandler(event) {
     const input = event.target.value;
 
-    this.props.search(input)();
+    if (input.includes('#')) {
+      this.props.search(input.substring(1, input.length), 'keyword');
+    } else {
+      this.props.search(input, 'name');
+    }
   }
   getUserName() {
     let btnText = 'Log In';

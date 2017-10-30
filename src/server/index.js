@@ -158,7 +158,7 @@ function responseCreateBusinessSuccess(res) {
 function validateRequestBody(req) {
   return (!req.body.name || !req.body.description
     || !req.body.address || !req.body.phone
-    || !req.body.keyword || !req.body.longitude 
+    || !req.body.keyword || !req.body.longitude
     || !req.body.latitude || !req.body.images);
 }
 

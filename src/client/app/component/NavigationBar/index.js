@@ -9,10 +9,10 @@ class NavigationBar extends React.Component {
           <h1>Browsing Shenzhen</h1>
         </div>
         <nav className="nav-container">
-          <a href="#" className="nav-link-change">Overview</a>
-          <a href="#" className="nav-link-origin">Restaurants</a>
-          <a href="#" className="nav-link-origin">Nightlife</a>
-          <a href="#" className="nav-link-origin">Home Service</a>
+          <a href="#" className="nav-link-clicked">Overview</a>
+          <a href="#">Restaurants</a>
+          <a href="#">Nightlife</a>
+          <a href="#">Home Service</a>
         </nav>
       </div>
     );

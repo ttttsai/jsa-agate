@@ -25,30 +25,24 @@ $white: #fff;
   justify-content: space-between;
   padding: 0 2em;
   position: relative;
+  padding-top: 1em;
+  a {
+    font-size: .85em;
+    height: .875em;
+    padding: 1.32em 1em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid;
+    color: #999;
+  }
+  a:hover {
+    color: #000;
+  }
+  .nav-link-clicked {
+    color: #000;
+  }
 }
-
-.nav-link-origin {
-  border-bottom: 1px solid #adafb2;
-  color: #999;
-  font-size: .85em;
-  height: .875em;
-  padding: 1.32em 1em;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.nav-link-change {
-  border-bottom: 1px solid #ff0;
-  color: #000;
-  font-size: .85em;
-  height: .875em;
-  padding: 1.32em 1em;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
 .comment-img {
   height: 1em;
   margin-top: -2px;

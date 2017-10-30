@@ -4,16 +4,22 @@ import Menu from 'antd/lib/menu';
 import 'antd/lib/menu/style/index.css';
 import Dropdown from 'antd/lib/dropdown';
 import 'antd/lib/dropdown/style/index.css';
+import Switch from 'antd/lib/switch';
+import 'antd/lib/switch/style/index.css';
 import './style.scss';
 
 class HomePageHeader extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {'isLoggedIn': localStorage.getItem('Authorization') !== null};
+    this.state = {
+      'isLoggedIn': localStorage.getItem('Authorization') !== null,
+      'theme': this.decideTheme(),
+    };
     this.submitHandler = this.submitHandler.bind(this);
     this.valueChangeHandler = this.valueChangeHandler.bind(this);
     this.onClickHeaderLogBtn = this.onClickHeaderLogBtn.bind(this);
     this.handleMenuBtnClick = this.handleMenuBtnClick.bind(this);
+    this.themeSwitchClicked = this.themeSwitchClicked.bind(this);
   }
 
   componentDidMount() {
@@ -22,8 +28,24 @@ class HomePageHeader extends React.Component {
     this.refs.menuButton.addEventListener('click', function(event) {
       that.props.history.push('/');
     });
-  }
 
+    if (this.state.theme === 'dark') {
+      document.getElementById('root').classList.add('root-dark');
+    } else {
+      document.getElementById('root').classList.remove('root-dark');
+    }
+  }
+  componentWillUpdate(nextProps, nextStates) {
+    const rootContainer = document.getElementById('root');
+
+    if (this.state.theme !== nextStates.theme) {
+      if (nextStates.theme === 'dark') {
+        rootContainer.classList.add('root-dark');
+      } else {
+        rootContainer.classList.remove('root-dark');
+      }
+    }
+  }
   submitHandler(event) {
     event.preventDefault();
     const input = event.target.elements[0].value;
@@ -72,6 +94,24 @@ class HomePageHeader extends React.Component {
     }
     return btnText;
   }
+  themeSwitchClicked(checked) {
+    const theme = checked ? 'red' : 'dark';
+
+    localStorage.setItem('theme', theme);
+    this.setState({theme: theme});
+  }
+  decideTheme() {
+    let theme = 'red';
+    let storedTheme = localStorage.getItem('theme');
+  
+    if (storedTheme && (storedTheme === 'red' || storedTheme === 'dark')) {
+      theme = storedTheme;
+    } else {
+      localStorage.setItem('theme', theme);
+    }
+  
+    return theme;
+  }
   getLogBtnType() {
     let button = <button onClick={this.onClickHeaderLogBtn}>Log In</button>;
 
@@ -82,6 +122,11 @@ class HomePageHeader extends React.Component {
             <button className="home-page-header-create-btn">
               Create Business
             </button>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <Switch onChange={this.themeSwitchClicked}
+              checkedChildren="red theme" unCheckedChildren="dark theme"
+              defaultChecked={this.state.theme === 'dark' ? false : true}/>
           </Menu.Item>
           <Menu.Divider />
           <Menu.Item key="1">

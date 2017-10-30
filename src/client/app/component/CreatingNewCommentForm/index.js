@@ -23,21 +23,24 @@ class CreatingNewCommentForm extends React.Component {
     return (
       <div className="creating-new-comment-form">
         <Spin spinning={loading}>
-          <div className="business-container">
-            <h1 >{this.props.businessDetail.name}</h1>
-            <div><h2>General Rating </h2> <Rate allowHalf character="★" disabled
-              value={this.props.businessDetail.rating} /></div>
+          <h2 className="comment-title">Write a comment</h2>
+          <div className="business-info">
+            <div className="business-info-name-rating">
+              <h3 className="comment-business-name">{this.props.businessDetail.name}</h3>
+              <p>Rating: {Number(this.props.businessDetail.rating).toFixed(2)}</p>
+            </div>
           </div>
           <form className="comment-info"
             method="POST" name="comment-info-form"
             onSubmit={onSubmit} onKeyPress = {this.handleKeyPress}>
-            <div className="rating-container">
-              <Rate allowHalf onChange={changeRating}
-                character="★" value={rating} />
-              <span className="ant-rate-text">(Please give rates for this business)</span>
+            <div className="comment-container">
+              <div className="rating-container">
+                <Rate allowHalf onChange={changeRating}
+                  character="★" value={rating} />
+              </div>
+              <textarea rows="4" cols="50" name="comment-input"
+                required placeholder="Add you comment" />
             </div>
-            <textarea rows="4" cols="50" name="comment-input"
-              required placeholder="Add you comment" />
             <input className="comment-submit"
               type="submit" value="Add Comment"/>
           </form>

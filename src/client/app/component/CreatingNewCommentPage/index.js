@@ -2,6 +2,8 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 import CreatingNewCommentForm from '../CreatingNewCommentForm';
 import Header from '../HomePageHeader';
+import notification from 'antd/lib/notification';
+import 'antd/lib/notification/style/index.css';
 import './style.scss';
 
 class CreatingNewCommentPage extends React.Component {
@@ -9,7 +11,6 @@ class CreatingNewCommentPage extends React.Component {
     super(props);
     this.state = {
       'loading': false,
-      'formHasError': false,
       'rating': 0,
     };
   }
@@ -38,10 +39,13 @@ class CreatingNewCommentPage extends React.Component {
     }
   }
   errorHandler(err) {
-    this.setState({'errMsg': err.message, 'formHasError': true});
+    notification.open({
+      message: err.message,
+      description: 'Please try again.',
+      placement: 'bottomLeft',
+    });
   }
   successHandler() {
-    this.setState({'errMsg': '', 'formHasError': false});
     this.props.handleSubmitComment();
   }
 
@@ -77,16 +81,18 @@ class CreatingNewCommentPage extends React.Component {
     });
   }
   render() {
-    const {loading, formHasError} = this.state;
+    const {loading, rating} = this.state;
 
     return (
-      <div className="creating-new-business">
+      <div className="creating-new-comment">
         <Header/>
         <main className="content-container">
           <CreatingNewCommentForm onSubmit={this.submitHandler.bind(this)}
             onEnterShiftSubmit={this.keyPressSubmitHandler.bind(this)}
-            loading={loading} formHasError={formHasError} changeRating={this.changeRating.bind(this)}
-            rating={this.state.rating} businessDetail={this.props.businessDetail}/>
+            loading={loading}
+            changeRating={this.changeRating.bind(this)}
+            rating={rating}
+            businessDetail={this.props.businessDetail}/>
         </main>
       </div>
     );

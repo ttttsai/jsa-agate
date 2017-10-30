@@ -1,11 +1,12 @@
-.creating-new-business {
+.creating-new-comment {
+  width: 100%;
+  
   input#mySearch {
     display: none;
   }
-  main {
+  
+  .content-container {
     display: flex;
-    padding: 0 1.5em;
-    justify-content: center;
-  }
+    justify-content: space-around;
 }
-
+}

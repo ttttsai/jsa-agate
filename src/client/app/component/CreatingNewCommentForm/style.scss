@@ -1,92 +1,116 @@
-$form-width: calc(100% - 2em);
-$form-height: calc(100% - 6em);
-$border: 1px solid #fff;
-
+main.content-container {
+  height: calc(100vh - 3.4em);
+}
 .creating-new-comment-form {
+  min-width: 30%;
+  margin: 0 auto;
+ 
+}
+.comment-title {
+  color: #bd1f1f;
+  margin-top: 2em;
+}
 
-  .ant-spin-nested-loading {
-    flex-basis: 40%;
-    height: 80%;
+.business-info {
+  border-top: 1px solid black;
+  .business-info-name-rating {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 
-    .ant-spin-container {
-      height: 100%;
-
-      .business-container {
-        padding-top: 1em;
-        h1 {
-          font-size: 2.5em;
-          margin: 0;
-        }
-
-        div {
-          pointer-events: none;
-          display: flex;
-          flex-direction: row;
-          align-items: baseline;
-
-          h2:after {
-            content: " ";
-            display: inline-block;
-            padding-right: 0.5em;
-          }
-
-          .ant-rate {
-            font-size: 2em;
-          }
-        }
-      }
-  
-      .comment-info {
-        display: flex;
-        flex-direction: column;
-        width: $form-width;
-        border: 1px solid #e6e6e6;
-        padding: 0 1em 1em 1em;
-  
-        .rating-container {
-          border-bottom: $border;
-          padding: 0.5em 0;
-          
-          .ant-rate {
-            font-size: 1.5em;
-          }
-
-          .ant-rate-text {
-            height: 1.5em;
-            padding-top: 0.5em
-          }
-        }
-  
-        textarea {
-          flex-basis: 50%;
-          font-size: 1.5em;
-          border-color: #e6e6e6;
-        }
-    
-        input {
-          margin-bottom: 1em;
-          font-size: 1em;
-          padding: .3em;
-        }
-    
-        .comment-submit {
-          background: linear-gradient(#d90007,#c91400);
-          border: 1px solid #8d0005;
-          border-radius: 12px;
-          font-family: Arial;
-          color: #ffffff;
-          font-size: 1em;
-          font-weight: bold;
-          padding: 10px 20px;
-          text-decoration: none;
-          outline: none;
-          margin-top: 1em;
-        }
-  
-        .comment-submit:hover {
-          background: #e11002;
-        }
-      }
-    } 
+    .comment-business-name {
+      padding-right: 1em;      
+    }
   }
+}
+
+form.comment-info {
+  display: flex;
+  flex-direction: column;
+  height: 20em;
+
+  .comment-info-name {
+    margin: 0;
+  }
+
+  .comment-container {
+    border: 1px solid #000;
+    border-radius: 0.5em;
+    padding: 0 1em;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+    .rating-container {
+      border-bottom: 1px solid #000;
+      height: 20%;
+      display: flex;
+      align-items: baseline;
+      .ant-rate {
+        font-size: 2em;
+        .ant-rate-star {
+          -webkit-tap-highlight-color: transparent;
+        }
+      }
+    }
+    
+    textarea {
+      border: none;
+      height: 70%;
+      outline:none;
+      font-size: 1em;
+    }
+  }
+
+  .comment-submit {
+    background: linear-gradient(#d90007,#c91400);
+    border: 1px solid #8d0005;
+    border-radius: 12px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    outline: none;
+    margin-top: 1em;
+  }
+
+  .comment-submit:hover {
+    background: #e11002;
+  }
+
+}
+
+@media screen and (max-width: 380px) {
+  main.content-container {
+    margin: 0 1em;
+    .creating-new-comment-form {
+      width: 90%;
+    }
+    .business-info .business-info-name-rating {
+      flex-direction: row;
+      align-items: baseline;
+    } 
+    form.comment-info {
+      .comment-container {
+        height: 75%;
+        justify-content: initial;
+        .rating-container {
+          height: 15%;
+          align-items: center;
+          .ant-rate {
+            font-size: 2.0em;
+          }
+        }
+        textarea {
+          height: 70%;
+          margin-top: 0.5em;
+        } 
+      }
+    }
+   
+  }
+
 }

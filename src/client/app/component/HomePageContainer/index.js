@@ -7,7 +7,8 @@ class HomePageContainer extends React.Component {
   render() {
     return (
       <div className = "home-page-container">
-        <NavigationBar navigation={this.props.navigation}/>
+        <NavigationBar navigation={this.props.navigation}
+          setDisplayBiz={this.props.setDisplayBiz}/>
         <BusinessOverview businesses={this.props.businesses}/>
       </div>
     );

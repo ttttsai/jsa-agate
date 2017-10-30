@@ -15,9 +15,11 @@ class NavigationBar extends React.Component {
 
       element.classList.add('nav-link-selected');
       if (category !== 'OVERVIEW') {
-        that.props.navigation(category, 'category');
+        that.props.navigation(category, 'category', 'constBusinesses');
+        that.props.setDisplayBiz();
       } else {
-        that.props.navigation('', 'name');
+        that.props.navigation('', 'name', 'constBusinesses');
+        that.props.setDisplayBiz();
       }
     })
     );
@@ -29,7 +31,6 @@ class NavigationBar extends React.Component {
 
     that.categoryFilter(navLinkOrigin);
   }
-
   render() {
     return (
       <div className="home-page-navigation-container">

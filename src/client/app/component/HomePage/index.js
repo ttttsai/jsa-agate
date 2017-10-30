@@ -10,15 +10,19 @@ import './style.scss';
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {businesses: [], constBusinesses: []};
+    this.state = {businesses: [], constBusinesses: [], displayBusinesses: []};
     this.filterBusinesses = this.filterBusinesses.bind(this);
+    this.setDisplayBusinesses = this.setDisplayBusinesses.bind(this);
   }
-  filterBusinesses(inputStr, objKey) {
+  filterBusinesses(inputStr, objKey, collection) {
     const filteredBusinesses =
-      () => this.state.constBusinesses.filter((el) =>
+      () => this.state[collection].filter((el) =>
         this.searchString(el[objKey].toLowerCase(), inputStr.toLowerCase()));
 
     this.setState({businesses: filteredBusinesses()});
+  }
+  setDisplayBusinesses() {
+    this.setState({displayBusinesses: this.state.businesses});
   }
   searchString(business, inputStr) {
     return business.includes(inputStr);
@@ -57,7 +61,8 @@ class HomePage extends React.Component {
         <div className="home-page-main">
           <HomePageHeader search={this.filterBusinesses}/>
           <HomePageContainer businesses={this.state.businesses}
-            navigation={this.filterBusinesses}/>
+            navigation={this.filterBusinesses}
+            setDisplayBiz={this.setDisplayBusinesses}/>
         </div>
         <HomePageMap businesses={this.state.businesses}/>
       </div>

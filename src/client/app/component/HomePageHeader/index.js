@@ -83,9 +83,10 @@ class HomePageHeader extends React.Component {
     const input = event.target.value;
 
     if (input.includes('#')) {
-      this.props.search(input.substring(1, input.length), 'keyword');
+      this.props.search(input.substring(1, input.length),
+        'keyword', 'displayBusinesses');
     } else {
-      this.props.search(input, 'name');
+      this.props.search(input, 'name', 'displayBusinesses');
     }
   }
   getUserName() {
@@ -107,13 +108,13 @@ class HomePageHeader extends React.Component {
   decideTheme() {
     let theme = 'red';
     let storedTheme = localStorage.getItem('theme');
-  
+
     if (storedTheme && (storedTheme === 'red' || storedTheme === 'dark')) {
       theme = storedTheme;
     } else {
       localStorage.setItem('theme', theme);
     }
-  
+
     return theme;
   }
   getLogBtnType() {

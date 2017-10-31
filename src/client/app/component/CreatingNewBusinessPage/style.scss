@@ -1,21 +1,37 @@
 .creating-new-business {
   height: 100vh;
+
   main {
     height: calc(100% - 3.4em);
   }
+
   .create-page-header-infor {
     padding: 2em;
     font-size: 1.5em;
   }
+
   .content-container {
     display: flex;
     padding: 0 1.5em;
   
+    .content-container-form {
+      width: 50%;
+      padding: 0 1em;
+
+      h1 {
+        margin-bottom: 0;
+      }
+    }
+
     .creating-new-map{
       display: flex;
       justify-content: center;
       width: 50%;
       margin: 2em;
+
+      .mobile-info {
+        display: none;
+      }
     
       .google-map-component {
         width:100%;
@@ -25,3 +41,43 @@
     }
   }
 }
+
+@media screen and (max-width: 420px) {
+.creating-new-business {
+  height: 100%;
+
+  .create-page-header-infor {
+    padding: 0 0.5em;
+    font-size: 1.2em;
+  }
+
+  .content-container {
+    flex-direction: column-reverse;
+
+    .content-container-form {
+      width: 100%;
+
+      h1 {
+        display: none;
+      }
+    }
+
+    .creating-new-map {
+      width: 100%;
+      height: 20em;
+      margin: 1em 0;
+      display: flex;
+      flex-direction: column;
+
+      .mobile-info {
+        display: initial;
+      }
+      
+      h1.mobile-info {
+        margin-bottom: 0;
+      }
+    }
+  }
+}  
+}
+

@@ -5,12 +5,13 @@ $borderStyle: 1px solid #d8d8d8;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 0 1em;
-  width: 50%;
+  width: 100%;
   font-size: 12px;
+
   p {
     font-size: initial;
   }
+
   .business-info {
     display: flex;
     flex-direction: column;
@@ -48,9 +49,11 @@ $borderStyle: 1px solid #d8d8d8;
     outline: none;
     margin-top: 1em;
   }
+
   .business-submit:hover {
     background: #e11002;
   }
+
   .create-page-upload-btn {
     background: url('./upload-icon.svg') no-repeat 38%;
     text-align: center;
@@ -62,9 +65,11 @@ $borderStyle: 1px solid #d8d8d8;
     padding: 3.6px;
   }
 }
+
 .ant-upload.ant-upload-select {
   display: block !important;
   .ant-upload {
     display: block;
   }
 }
+

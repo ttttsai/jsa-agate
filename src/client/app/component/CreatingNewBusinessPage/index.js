@@ -90,9 +90,14 @@ class CreatingNewBusinessPage extends React.Component {
       <div className="creating-new-business">
         <Header headerType="create"/>
         <main className="content-container">
-          <CreatingNewBusinessForm onSubmit={this.submitHandler}
-            loading={loading} address={address}/>
+          <div className="content-container-form">
+            <h1>Add Your Business</h1>
+            <CreatingNewBusinessForm onSubmit={this.submitHandler}
+              loading={loading} address={address}/>
+          </div>
           <div className="creating-new-map">
+            <h1 className="mobile-info">Add Your Business</h1>
+            <p className="mobile-info">Please click on the map and select your business address.</p>
             <HomePageMap mapType="create"
               clickHandlerForCreate={this.clickMapHandler}/>
           </div>

@@ -80,7 +80,6 @@ class CreatingNewBusinessForm extends React.Component {
     return (
       <div className="creating-new-business-form">
         <Spin spinning={loading}>
-          <h1>Add Your Business</h1>
           <p>Add information about your business below.</p>
           <form className="business-info"
             method="POST" name="business-info-form"

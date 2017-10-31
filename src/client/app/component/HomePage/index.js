@@ -49,6 +49,7 @@ class HomePage extends React.Component {
         that.setState({
           businesses: value.businesses,
           constBusinesses: value.businesses,
+          displayBusinesses: value.businesses,
         });
       }
     }).catch(function(err) {

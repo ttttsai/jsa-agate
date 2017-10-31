@@ -74,5 +74,27 @@ body {
       background: #000;
     }
   }
+  .creating-new-comment {
+    background-color: #4b4b4b;
+    color: #fff;
+    main.content-container {
+      .comment-title {
+        color: #fff;
+      }
+      form.comment-info {
+        textarea {
+          background: transparent;
+          color: #fff;
+        }
+        .comment-submit {
+          background: #2a2a2a;
+          border-color: #000;
+        }
+        .comment-submit:hover {
+          background: #000;
+        }
+      }
+    }
+  }
 }
 

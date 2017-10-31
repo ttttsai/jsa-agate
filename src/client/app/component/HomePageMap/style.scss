@@ -1,1 +1,17 @@
-
+.info-window {
+  max-width: 300px;
+  display: flex;
+  h3 {
+    color: #bd1f1f;
+  }
+  .info-window-right {
+    padding-top: 1em;
+  }
+  img {
+    height: 60px;
+    width: 60px;
+  }
+  p {
+    margin-top: 0;
+  }
+}

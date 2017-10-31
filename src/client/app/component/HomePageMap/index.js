@@ -109,16 +109,20 @@ class HomePageMap extends React.Component {
   }
   addMarkerListener(marker, value) {
     let that = this;
-    let infowindow = new google.maps.InfoWindow({content: value.name});
 
-    marker.addListener('mouseover', function() {
-      infowindow.open(that.state.map, marker);
-    });
-    marker.addListener('mouseout', function() {
-      infowindow.close();
-    });
     marker.addListener('click', function(evt) {
-      let infoDetailWindow = new google.maps.InfoWindow({content: value.name});
+      let contentStr = '<div class="info-window">' + 
+        '<div class="info-window-left">' +
+        '<h3>' + value.name + '</h3>' +
+        '<p>Rating: ' + value.rating.toFixed(1) + '</p>' +
+        '<p>Address: ' + value.address + '</p>' +
+        '<p>Tel: ' + value.phone + '</p>' +
+        '</div>' +
+        '<div class="info-window-right">' +
+        '<img src="' + value.images[0] + '" />' +
+        '</div>' +
+        '</div>';
+      let infoDetailWindow = new google.maps.InfoWindow({content: contentStr});
 
       that.state.map.setZoom(15);
       that.state.map.panTo(marker.getPosition());
@@ -143,7 +147,7 @@ class HomePageMap extends React.Component {
     return marker;
   }
   makeMarkers(businesses) {
-    if (businesses && businesses.length > 0 && this.state.map) {
+    if (businesses && this.state.map) {
       this.clearMarkers();
       this.setCenter({
         lat: businesses[0].latitude,

@@ -51,7 +51,8 @@ function createBusiness(body, callback) {
 
   MongoClient.connect(url, function(err, db) {
     const businessInfo = {
-      name: body.name, description: body.description,
+      name: body.name, category: body.category,
+      description: body.description,
       address: body.address, phone: body.phone,
       keyword: body.keyword, rating: 0,
       longitude: body.longitude, latitude: body.latitude,

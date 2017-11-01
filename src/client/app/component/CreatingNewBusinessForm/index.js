@@ -6,13 +6,16 @@ import './style.scss';
 
 import Upload from 'antd/lib/upload';
 import 'antd/lib/upload/style/index.css';
+import Cascader from 'antd/lib/cascader';
+import 'antd/lib/cascader/style/index.css';
 
 class CreatingNewBusinessForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {loading: false, imgList: []};
+    this.state = {loading: false, imgList: [], category: []};
     this.handleImageSubmit = this.handleImageSubmit.bind(this);
     this.onSubmitTrigger = this.onSubmitTrigger.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.address) {
@@ -21,7 +24,7 @@ class CreatingNewBusinessForm extends React.Component {
   }
 
   onSubmitTrigger(event) {
-    this.props.onSubmit(event, this.state.imgList);
+    this.props.onSubmit(event, this.state.imgList, this.state.category);
   }
 
   getSignedRequest(file) {
@@ -52,9 +55,7 @@ class CreatingNewBusinessForm extends React.Component {
   uploadToS3(file) {
     return this.getSignedRequest(file)
       .then((json) => this.uploadFile(file, json.signedRequest, json.url))
-      .then((url) => {
-        return url;
-      }).catch((err) => {
+      .then((url) => url).catch((err) => {
         console.error(err);
         return null;
       });
@@ -70,6 +71,11 @@ class CreatingNewBusinessForm extends React.Component {
         that.setState({imgList: imgList});
       });
   }
+
+  onChange(value) {
+    this.setState({category: value});
+  }
+
   render() {
     const {loading, address} = this.props;
     const props = {
@@ -87,6 +93,13 @@ class CreatingNewBusinessForm extends React.Component {
             <label htmlFor="business-name">Business Name</label>
             <input name="name" id="business-name"
               type="text" placeholder="Mel's Diner" required/>
+            <label htmlFor="business-categories">Business Category</label>
+            <select>
+              <option value="restaurants">Restaurants</option>
+              <option value="nightlife">Night Life</option>
+              <option value="home service">Home Service</option>
+              <option value="">Others</option>
+            </select>
             <label htmlFor="business-description">Business Description</label>
             <input name="description" id="business-description" required
               type="text" placeholder="Organic Coffee, Natural Food"/>

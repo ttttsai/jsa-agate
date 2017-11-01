@@ -12,3 +12,154 @@
   padding: 2em 8em;
 }
 
+@media screen and (max-width: 768px) {
+  .single-business-page {
+    .home-page-header {
+      .search {
+        margin: 0;
+        width: 12em;
+        background-color: #f5f5f5;
+        transition: width .8s;
+      }
+      .search:focus {
+        width: 20em;
+        background-color: #fff;
+      }
+    }
+    .display-business-title {
+      display: block;
+      .single-business-rating {
+        display: block;
+        .ant-rate {
+          font-size: 30px;
+        }
+        p {
+          margin-left: 0;
+          font-size: larger;
+        }
+      }
+      .single-business-links-container {
+        width: auto;
+        display: block;
+        a {
+          display: block;
+          text-align: center;
+          margin-bottom: .8em;
+        }
+        a:first-child {
+          margin: 1em 0;
+          transform: scale(1);
+          font-size: larger;
+        }
+        a:not(:first-child) {
+          width: calc(100%/3);
+          box-sizing: border-box;
+          display: inline-block;
+        }
+      }
+    }
+    .display-business {
+      display: block;
+      height: 32em;
+      padding: 0 1em;
+      .detail-page-map-container {
+        height: 49%;
+        width: 90%;
+        margin: 1em auto;
+        p {
+          margin: 5px 0;
+          font-size: 16px;
+        }
+      }
+      .display-image {
+        height: 30%;
+        width: 95%;
+        margin: 2em auto;
+        
+      }
+    }
+    .comment-list-container {
+      .comment-list {
+        padding: 0;
+        .comment-content {
+          font-size: initial;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .single-business-page {
+    .home-page-header {
+      .search {
+        margin: 0;
+        width: 12em;
+      }
+    }
+    .display-business-title {
+      display: block;
+      .single-business-rating {
+        display: block;
+        p {
+          margin-left: 0;
+        }
+      }
+      // .single-business-links-container {
+      //   width: auto;
+      //   display: block;
+      //   a {
+      //     display: block;
+      //     text-align: center;
+      //     margin-bottom: .8em;
+      //   }
+      //   a:not(:first-child) {
+      //     width: calc(100%/3);
+      //     box-sizing: border-box;
+      //     display: inline-block;
+      //   }
+      // }
+    }
+    .display-business {
+      display: block;
+      height: 32em;
+      padding: 0 1em;
+      .detail-page-map-container {
+        height: 49%;
+        width: 90%;
+        margin: 1em auto;
+        p {
+          margin: 5px 0;
+          font-size: smaller;
+        }
+      }
+      .display-image {
+        height: 30%;
+        width: 95%;
+        margin: 2em auto;
+        
+      }
+    }
+    .comment-list-container {
+      .comment-list {
+        padding: 0;
+        .comment-content {
+          font-size: initial;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .single-business-page {
+    .display-business-title {
+      .single-business-links-container {
+        a:not(:first-child) {
+          width: auto;
+          padding: .5em 1.2em;
+        }
+      }
+    }
+  }
+}

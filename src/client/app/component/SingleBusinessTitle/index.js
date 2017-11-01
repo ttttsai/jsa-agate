@@ -11,6 +11,7 @@ class SingleBusinessTitle extends React.Component {
   render() {
     let numberOfStar = this.props.rating || 0;
     let ratingScorePopUp = numberOfStar + ' rating';
+    let showedRating = this.props.rating ? this.props.rating.toFixed(1) : 0;
 
     return (
       <div className="display-business-title">
@@ -21,7 +22,7 @@ class SingleBusinessTitle extends React.Component {
           <div className="single-business-rating" title={ratingScorePopUp}>
             <Rate allowHalf character="★" disabled
               value={numberOfStar} />
-            <p>Rating: {this.props.rating}</p>
+            <p>Rating: {showedRating}</p>
             <p>Tel: {this.props.phone}</p>
           </div>
         </div>

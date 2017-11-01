@@ -33,7 +33,7 @@ class SingleBusinessPage extends React.Component {
     notification.open({
       message: err.message,
       description: 'Please try again.',
-      placement: 'bottomLeft',
+      placement: 'topRight',
     });
   }
   fetchBusinessesDetail() {

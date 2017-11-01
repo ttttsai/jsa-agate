@@ -152,21 +152,28 @@ class HomePageHeader extends React.Component {
     }
     return button;
   }
+  getHeaderElement() {
+    if (this.props.headerType === 'create') {
+      return (<div className="create-page-header-info">
+      for Business Owners</div>);
+    } else if (this.props.headerType === 'home') {
+      return (<form className="header" onSubmit={this.submitHandler}>
+        <input className="search" type="search" id="mySearch"
+          placeholder="Search"
+          onInput={this.valueChangeHandler}/>
+      </form>);
+    }
+    return '';
+  }
   render() {
     const button = this.getLogBtnType();
+    const showHeaderElement = this.getHeaderElement();
 
     return (
       <div className="home-page-header">
         <div className="home-page-header-left">
           <div className="menu" ref="menuButton"></div>
-          {this.props.headerType === 'create' ?
-            (<div className="create-page-header-infor">
-              for Business Owners</div>) :
-            (<form className="header" onSubmit={this.submitHandler}>
-              <input className="search" type="search" id="mySearch"
-                placeholder="Search"
-                onInput={this.valueChangeHandler}/>
-            </form>)}
+          {showHeaderElement}
         </div>
         <div className="home-page-header-right">
           {button}

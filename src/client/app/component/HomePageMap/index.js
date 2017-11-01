@@ -81,6 +81,9 @@ class HomePageMap extends React.Component {
         center: center,
         zoom: this.state.mapZoom,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
+        fullscreenControl: false,
+        zoomControl: true,
+        scaleControl: true,
       });
 
     this.setState({map: map, mapCenter: center});

@@ -60,7 +60,7 @@ class HomePage extends React.Component {
     return (
       <div className="home-page">
         <div className="home-page-main">
-          <HomePageHeader search={this.filterBusinesses}/>
+          <HomePageHeader search={this.filterBusinesses} headerType="home" />
           <HomePageContainer businesses={this.state.businesses}
             navigation={this.filterBusinesses}
             setDisplayBiz={this.setDisplayBusinesses}/>

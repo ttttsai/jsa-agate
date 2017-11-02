@@ -39,6 +39,9 @@ $map-width: 35%;
 @media screen and (min-width: 426px) and (max-width: 768px) {
   .home-page .home-page-main {
     flex: initial;
+    .search {
+      margin: 0;
+    }
   }
 }
 
@@ -53,6 +56,7 @@ $map-width: 35%;
 
     .search {
       width: 200px;
+      margin: 0;
     }
 
     .nav-container {
@@ -69,7 +73,7 @@ $map-width: 35%;
 
 }
 
-@media screen and (min-width: 321px) and (max-width: 375px){
+@media screen and (max-width: 375px){
 
  .home-page {
 
@@ -80,13 +84,20 @@ $map-width: 35%;
    }
 
    .search {
-     width: 166px;
+     width: 140px;
+     margin: 0;
+   }
+   .nav-title {
+     h1 {
+      font-size: 1.5em;
+     }
    }
    .nav-container {
       padding: 0 1em;
+      font-size: x-small;
 
       a {
-        padding: 17.952px 2px;
+        padding: 15px 5px;
       }
     }
    .google-map-component {

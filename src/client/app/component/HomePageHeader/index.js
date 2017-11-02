@@ -138,7 +138,7 @@ class HomePageHeader extends React.Component {
           </Menu.Item>
           <Menu.Item key="3">
             <Switch onChange={this.themeSwitchClicked}
-              checkedChildren="red theme" unCheckedChildren="dark theme"
+              checkedChildren="Red Theme" unCheckedChildren="Dark Theme"
               defaultChecked={this.state.theme === 'dark' ? false : true}/>
           </Menu.Item>
           <Menu.Divider />

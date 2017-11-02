@@ -14,8 +14,8 @@
     "http://4.bp.blogspot.com/-jxkZCWWr7rE/UCKA2Eh25iI/AAAAAAAAaFg/t_GuzCEVIss/s1600/m2.jpg"
   ],
   "comments":[
-    {username: "John", comment: "I had some scrambled eggs and latte for breakfast, nothing sophisticated but they were good and well presented. The place is very beautiful, nice atmosphere as well.", rating: 5},
-    {username: "Elizabeth R.", comment: "How is this the top rated restaurant? I realise there are only 7 reviews but WTF? Have you 7 lost your damn minds? This place is not good. It's 'passable' if you are completely desperate. ", rating: 2}
+    {username: "Zhengnan", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2611509593450_.pic_hd.jpg", comment: "I had some scrambled eggs and latte for breakfast, nothing sophisticated but they were good and well presented. The place is very beautiful, nice atmosphere as well.", rating: 5},
+    {username: "Leo", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2651509600226_.pic.jpg", comment: "How is this the top rated restaurant? I realise there are only 1 reviews but WTF? Have you lost your damn minds? This place is not good. It's 'passable' if you are completely desperate. ", rating: 2}
   ]
 }
 {
@@ -34,8 +34,8 @@
     "http://robbreport.com.my/wp-content/uploads/sites/2/2016/11/xPASS_GrandHyatt_Xmas16_1-580x360.jpg.pagespeed.ic.Lz1GlcmWGH.jpg"
   ],
   "comments":[
-    {username: "John", comment: "Very nice restaurant good food. Very good solution for vegetarians!", rating: 5},
-    {username: "Elizabeth R.", comment: "A nice vegetarian restaurant in the Buddhist tradition. Many dishes pretend to be meat but are not.", rating: 4}
+    {username: "Zhengnan", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2611509593450_.pic_hd.jpg", comment: "Very nice restaurant good food. Very good solution for vegetarians!", rating: 5},
+    {username: "Leo", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2651509600226_.pic.jpg", comment: "A nice vegetarian restaurant in the Buddhist tradition. Many dishes pretend to be meat but are not.", rating: 4}
   ]
 }
 {
@@ -54,8 +54,8 @@
     "http://3.bp.blogspot.com/-Nn8DAv-Oqjs/U_RDZyyHLLI/AAAAAAAAbiI/2UmVcS3utzU/s1600/DSC_0875.JPG"
   ],
   "comments":[
-    {username: "John", comment: "Food, even the most basic services are usually not as air-conditioning.", rating: 5},
-    {username: "Elizabeth R.", comment: "sweat diners to eat only junk level, they are better than other stores this.", rating: 4}
+    {username: "Zhengnan", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2611509593450_.pic_hd.jpg", comment: "Food, even the most basic services are usually not as air-conditioning.", rating: 5},
+    {username: "Leo", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2651509600226_.pic.jpg", comment: "sweat diners to eat only junk level, they are better than other stores this.", rating: 4}
   ]
 }
 {
@@ -74,8 +74,8 @@
     "https://us.123rf.com/450wm/kaisorn/kaisorn1506/kaisorn150600052/41817126-asia-street-food-web-banner--korean-food--indian-food--vietnam-food-flat-design.jpg"
   ],
   "comments":[
-    {username: "John", comment: "Vegetarian food is available here in reasonable variety though they cook non-vegetarian food also.", rating: 5},
-    {username: "Elizabeth R.", comment: "Good to have India  food in Bantian,Shenzhen.", rating: 4}
+    {username: "Zhengnan", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2611509593450_.pic_hd.jpg", comment: "Vegetarian food is available here in reasonable variety though they cook non-vegetarian food also.", rating: 5},
+    {username: "Leo", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2651509600226_.pic.jpg", comment: "Good to have India  food in Bantian,Shenzhen.", rating: 4}
   ]
 }
 {
@@ -94,8 +94,8 @@
     "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/7854C80B-E54E-4E6B-9C31-38554687A37D.jpeg"
   ],
   "comments":[
-    {username: "John", comment: "Well yeh its a great Hotel, service was fabulous although communication was a little difficult.", rating: 5},
-    {username: "Elizabeth R.", comment: "Very good value (4000 yuan for two rooms for three nights).", rating: 4}
+    {username: "Zhengnan", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2611509593450_.pic_hd.jpg", comment: "Well yeh its a great Hotel, service was fabulous although communication was a little difficult.", rating: 5},
+    {username: "Leo", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2651509600226_.pic.jpg", comment: "Very good value (4000 yuan for two rooms for three nights).", rating: 4}
   ]
 }
 {
@@ -114,8 +114,8 @@
     "https://news.starbucks.com/uploads/images/Beverages/Mocha_Affogato_resized.JPG"
   ],
   "comments":[
-    {username: "John", comment: "Nice and clean shop, arrived Saturday around 7pm, not many people.", rating: 5},
-    {username: "Elizabeth R.", comment: "Too many people on weekends, usually quite relaxed, not very quiet, but there are a lot of beauty to see.", rating: 4}
+    {username: "Zhengnan", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2611509593450_.pic_hd.jpg", comment: "Nice and clean shop, arrived Saturday around 7pm, not many people.", rating: 5},
+    {username: "Leo", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2651509600226_.pic.jpg", comment: "Too many people on weekends, usually quite relaxed, not very quiet, but there are a lot of beauty to see.", rating: 4}
   ]
 }
 {

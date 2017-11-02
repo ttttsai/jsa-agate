@@ -50,6 +50,7 @@
     }
     .ant-dropdown-link {
       background: no-repeat right/22% url("./arrow1.png");
+      width: 3em;
     }
   }
 
@@ -77,6 +78,9 @@
   width: 50px;
 }
 
+.ant-switch {
+  width: 100%;
+}
 .ant-switch-checked {
   background-color: $deeperRed;
 }

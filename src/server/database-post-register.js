@@ -11,7 +11,7 @@ function createDatabaseUrl() {
   return `${address}:${port}/${databaseName}`;
 }
 
-function handleInfo(username, passwordHash, callback) {
+function handleInfo(username, passwordHash, avatar, callback) {
   const url = createDatabaseUrl();
 
   MongoClient.connect(url, function(err, db) {
@@ -27,7 +27,8 @@ function handleInfo(username, passwordHash, callback) {
         if (docs !== null) {
           return callback('409');
         }
-        collection.insertOne({username: username, password: passwordHash},
+        collection.insertOne(
+          {username: username, password: passwordHash, avatar: avatar},
           function(err, doc) {
             if (err) {
               return callback('500');

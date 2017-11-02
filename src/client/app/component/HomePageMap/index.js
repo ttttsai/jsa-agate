@@ -58,6 +58,21 @@ class HomePageMap extends React.Component {
       that.placeMarker(e.latLng);
     });
   }
+  getRealLocationOfMap() {
+    const that = this;
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+
+        that.state.map.setCenter(pos);
+        that.setState({mapCenter: pos});
+      });
+    }
+  }
   removePreviousMarker() {
     const {markerForCreatePage} = this.state;
 
@@ -89,6 +104,9 @@ class HomePageMap extends React.Component {
     this.setState({map: map, mapCenter: center});
     if (this.props.mapType === 'create') {
       this.addMapEventListner();
+    } else if (this.props.mapType === 'home') {
+      this.getRealLocationOfMap();
+      this.makeMarkers(this.props.businesses);
     } else {
       this.makeMarkers(this.props.businesses);
     }

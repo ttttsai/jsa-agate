@@ -16,7 +16,7 @@ class SingleComment extends React.Component {
     return (
       <div className="single-comment-container">
         <div>
-          <Avatar style={{backgroundColor: '#87d068'}}>U</Avatar>
+          <Avatar src={data.avatar} size="large" />
         </div>
         <div className="comment-details">
           <div className="comment-username">{username}</div>

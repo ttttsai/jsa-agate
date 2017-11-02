@@ -48,6 +48,11 @@ html {
     .detail-page-map-container {
       color: #000;
     }
+    .display-image {
+      .slot > img {
+        background: #4b4b4b;
+      } 
+    }
   }
   .login-page-content {
     background-color: #4b4b4b;

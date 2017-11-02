@@ -65,7 +65,7 @@ class HomePage extends React.Component {
             navigation={this.filterBusinesses}
             setDisplayBiz={this.setDisplayBusinesses}/>
         </div>
-        <HomePageMap businesses={this.state.businesses}/>
+        <HomePageMap businesses={this.state.businesses} mapType="home" />
       </div>
     );
   }

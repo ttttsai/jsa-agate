@@ -6,6 +6,8 @@ import Dropdown from 'antd/lib/dropdown';
 import 'antd/lib/dropdown/style/index.css';
 import Switch from 'antd/lib/switch';
 import 'antd/lib/switch/style/index.css';
+import Avatar from 'antd/lib/avatar';
+import 'antd/lib/avatar/style/index.css';
 import './style.scss';
 
 class HomePageHeader extends React.Component {
@@ -123,6 +125,12 @@ class HomePageHeader extends React.Component {
     if (this.state.isLoggedIn) {
       const menu = (
         <Menu onClick={this.handleMenuBtnClick}>
+          <Menu.Item key="4">
+            User: {JSON.parse(
+              atob(localStorage.getItem('Authorization').split('.')[1])
+            ).username}
+          </Menu.Item>
+          <Menu.Divider />
           <Menu.Item key="2">
             <button className="home-page-header-create-btn">
               Create Business
@@ -143,11 +151,11 @@ class HomePageHeader extends React.Component {
 
       button = <Dropdown overlay={menu} trigger={['click']}
         size="small" placement="bottomRight">
-        <button className="ant-dropdown-link">
-          {JSON.parse(
+        <div className="ant-dropdown-link">
+          <Avatar src={JSON.parse(
             atob(localStorage.getItem('Authorization').split('.')[1])
-          ).username}
-        </button>
+          ).avatar} />
+        </div>
       </Dropdown>;
     }
     return button;

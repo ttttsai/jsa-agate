@@ -6,13 +6,13 @@ const bcrypt = require('bcrypt');
 
 const collectionName = 'users';
 
-function verifyPassword(reqPassword, queryPassword, callback) {
+function verifyPassword(reqPassword, queryPassword, avatar, callback) {
   console.log('reqPss', reqPassword, 'query', queryPassword);
   bcrypt.compare(reqPassword, queryPassword).then(
     function(res) {
       console.log('res', res);
       if (res) {
-        return callback(loginStatusCode.CORRECT);
+        return callback(loginStatusCode.CORRECT, avatar);
       }
       return callback(loginStatusCode.MISSING_CREDENTIALS);
     }
@@ -29,7 +29,7 @@ function findUser(body, callback) {
             const reqPassword = body.password;
             const queryPassword = docs.password;
 
-            verifyPassword(reqPassword, queryPassword, callback);
+            verifyPassword(reqPassword, queryPassword, docs.avatar, callback);
           } else {
             return callback(loginStatusCode.MISSING_CREDENTIALS);
           }

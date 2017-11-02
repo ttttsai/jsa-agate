@@ -79,9 +79,10 @@ app.post('/api/login', (req, res) => {
   });
   if (!res._headerSent) {
     login.createTokenForExistingUser(req.body,
-      (status) => {
+      (status, avatar) => {
         if (status === loginStatusCode.CORRECT) {
-          const token = jwt.sign({username: req.body.username}, secret);
+          const token = jwt.sign(
+            {username: req.body.username, avatar: avatar}, secret);
 
           return res.status(HTTP_200).
             json({token: token});
@@ -123,7 +124,7 @@ function responseOtherError(dbResponseStatus, res) {
 
 function responseRegisterSuccess(dbResponseStatus, req, res) {
   if (dbResponseStatus === '201') {
-    const token = jwt.sign({username: req.body.username}, secret);
+    const token = jwt.sign({username: req.body.username, avatar: req.body.avatar}, secret);
 
     responseMessage.REGISTER_SUCCESS.token = token;
     return res.status(HTTP_201).json(responseMessage.REGISTER_SUCCESS);
@@ -140,7 +141,7 @@ app.post('/api/register', function(req, res) {
   } else {
     const passwordHash = generateHash(req.body.password);
 
-    Register.handleInfo(req.body.username, passwordHash,
+    Register.handleInfo(req.body.username, passwordHash, req.body.avatar,
       (dbResponseStatus) => {
         responseUsernameConflit(dbResponseStatus, res);
         responseOtherError(dbResponseStatus, res);

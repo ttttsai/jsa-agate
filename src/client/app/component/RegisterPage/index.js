@@ -13,16 +13,16 @@ class RegisterPage extends React.Component {
       'formHasError': false,
     };
   }
-  submitHandler(event) {
+  submitHandler(event, avatarUrl) {
     this.setState({'loading': true});
     event.preventDefault();
     let password = event.target.elements[1].value;
     let retypePassword = event.target.elements[2].value;
 
-    this.validatePasswords(password, retypePassword);
+    this.validatePasswords(event, password, retypePassword, avatarUrl);
   }
 
-  validatePasswords(password, retypePassword) {
+  validatePasswords(event, password, retypePassword, avatar) {
     if (password != retypePassword) {
       this.setState({'loading': false});
       this.setState({
@@ -33,6 +33,7 @@ class RegisterPage extends React.Component {
       this.submitData({
         username: event.target.elements[0].value,
         password: password,
+        avatar: avatar,
       });
     }
   }

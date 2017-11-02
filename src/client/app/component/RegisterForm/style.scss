@@ -2,4 +2,9 @@
 
 .register-box {
   @include login-signup-form-box;
+  .sign-up-page-avatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+  }
 }

@@ -76,20 +76,21 @@ function createBusiness(body, callback) {
   });
 }
 
-function findBusinessAndPostReview(db, searchId, username, body, callback) {
+function findBusinessAndPostReview(db, data, callback) {
   const businessCollection = db.collection(collectionName);
-  const filter = {_id: new ObjectID(searchId)};
+  const filter = {_id: new ObjectID(data.searchId)};
   const commentInfo = {
-    username: username,
-    comment: body.comment,
-    rating: body.rating,
+    username: data.username,
+    comment: data.body.comment,
+    rating: data.body.rating,
+    avatar: data.avatar,
     id: new ObjectID(),
   };
 
   businessCollection.findOne(filter, function(err, docs) {
     if (err === null && docs !== null) {
       let commentsNumber = docs.comments && docs.comments.length || 0;
-      let afterRating = (docs.rating * commentsNumber + body.rating) /
+      let afterRating = (docs.rating * commentsNumber + data.body.rating) /
         (commentsNumber + 1);
 
       businessCollection.update(filter,
@@ -109,15 +110,15 @@ function findBusinessAndPostReview(db, searchId, username, body, callback) {
       return callback('400');
     }
   });
-  
 }
 
-function findExistingUserAndPostReview(db, searchId, username, body, callback) {
+function findExistingUserAndPostReview(db, data, callback) {
   const usersCollection = db.collection('users');
 
-  usersCollection.findOne({username: username}, function(err, docs) {
+  usersCollection.findOne({username: data.username}, function(err, docs) {
     if (err === null && docs !== null) {
-      findBusinessAndPostReview(db, searchId, username, body, callback);
+      data.avatar = docs.avatar;
+      findBusinessAndPostReview(db, data, callback);
     } else {
       return callback('400');
     }
@@ -129,7 +130,8 @@ function createComment(searchId, username, body, callback) {
 
   MongoClient.connect(url, function(err, db) {
     if (err === null) {
-      findExistingUserAndPostReview(db, searchId, username, body, callback);
+      findExistingUserAndPostReview(db,
+        {searchId: searchId, username: username, body: body}, callback);
     } else {
       return callback('500');
     }

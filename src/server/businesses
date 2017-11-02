@@ -46,7 +46,7 @@
   "keyword": "Food Fish",
   "category": "restaurants nightlife",
   "rating": 4.5,
-  "longitude": 113.95328960730694,
+  "longitude": 113.96328960730,
   "latitude": 22.52367208872206,
   "images" : [
     "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/japan4.jpeg",
@@ -84,7 +84,7 @@
   "address" : "China, Guangdong Sheng, Shenzhen Shi, Nanshan Qu, HouHai, China, 518054",
   "phone" : "+86 755 8626 8888",
   "keyword": "Hotel",
-  "category": "nightlife home service",
+  "category": "nightlife",
   "rating": 4.5,
   "longitude": 113.9478866639547,
   "latitude": 22.519643542593176,
@@ -146,8 +146,8 @@
   "keyword": "Pub Cocktails",
   "category": "nightlife",
   "rating": 4.5,
-  "longitude": 113.9603706,
-  "latitude": 22.5305364,
+  "longitude": 113.9479886539697,
+  "latitude": 22.561697,
   "images" : [
     "http://www.aroundrometours.com/img/blog/scholars-lounge-rome.jpg",
     "https://assets.bonappetit.com/photos/578d0a51d6e20cf6325f68cc/master/w_625,c_limit/Pub-Royale-chicago-restaurant-Spaceimg.jpg",
@@ -169,10 +169,10 @@
   "longitude": 113.9603705,
   "latitude": 22.5305364,
   "images" : [
-    "http://escobares.com/wp-content/uploads/2017/03/Home-Decorating-Design-Inspiring-good-Home-Decor-Designs-Mesmerizing-Interior-Design-Ideas-Popular.jpg",
-    "http://autocraftva.com/wp-content/uploads/2017/03/Home-Design-And-Decoration-Inspiring-well-Home-Design-And-Decoration-Inspiring-Worthy-Interior-Perfect.jpg",
-    "http://hlbtlm.com/wp-content/uploads/2017/04/bedroom-design-ideas-1000-ideas-about-bedroom-designs-on-pinterest-teen-girl-rooms-style.jpg"
-  ],
+    "https://st.hzcdn.com/simgs/d441865303a6e2ba_4-5014/contemporary-entry.jpg",
+    "http://www.homedesignideas.eu/wp-content/uploads/2017/04/AN-INDUSTRIAL-SHOW-HOME-BY-HONKY-INTERIORS-FEATE-730x350.jpg",
+    "https://i.pinimg.com/736x/57/1c/86/571c86873767d5070b7502eaff14347c--japanese-wall-japanese-living-room-ideas.jpg"
+   ],
   "comments":[
     {username: "John", comment: "Really good service", rating: 5},
     {username: "Elizabeth R.", comment: "Awesome decoration design", rating: 4}

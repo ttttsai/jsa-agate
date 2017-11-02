@@ -118,3 +118,63 @@
     {username: "Elizabeth R.", comment: "Too many people on weekends, usually quite relaxed, not very quiet, but there are a lot of beauty to see.", rating: 4}
   ]
 }
+{
+  "name": "Jianyue Pub",
+  "description": "Great cocktails. Cosy. Casual",
+  "address" : "Taoyuan Rd, NanTou, Nanshan Qu, Shenzhen Shi, Guangdong Sheng, China, 518052",
+  "phone" : "+86 755 2657 2776",
+  "keyword": "Pub Drinks",
+  "category": "nightlife",
+  "rating": 4.5,
+  "longitude": 113.9254098,
+  "latitude": 22.531897,
+  "images" : [
+    "http://www.powertochange.org.uk/wp-content/uploads/2017/07/Beer-price-UK-pubs-goes-up-6p-pint-801398.jpg",
+    "https://static1.squarespace.com/static/54fc62b1e4b01792f1e93bf5/t/54fc7233e4b0ca30c036af5c/1425830451654/47134_420761130059_1922674_n.jpg",
+    "https://whyaminotthere.files.wordpress.com/2016/03/porterhouse.jpg?w=800"
+  ],
+  "comments":[
+    {username: "John", comment: "Waiters are really nice", rating: 5},
+    {username: "Elizabeth R.", comment: "Good drinks", rating: 4}
+  ]
+}
+{
+  "name": "Jazz Garden",
+  "description": "Cosy. Casual",
+  "address" : "Shennan Ave, HuaQiaoCheng, Nanshan Qu, Shenzhen Shi, Guangdong Sheng, China, 518053",
+  "phone" : "+86 755 2657 8888",
+  "keyword": "Pub Cocktails",
+  "category": "nightlife",
+  "rating": 4.5,
+  "longitude": 113.9603706,
+  "latitude": 22.5305364,
+  "images" : [
+    "http://www.aroundrometours.com/img/blog/scholars-lounge-rome.jpg",
+    "https://assets.bonappetit.com/photos/578d0a51d6e20cf6325f68cc/master/w_625,c_limit/Pub-Royale-chicago-restaurant-Spaceimg.jpg",
+    "https://media-cdn.tripadvisor.com/media/photo-s/0c/36/2b/6f/interior.jpg"
+  ],
+  "comments":[
+    {username: "John", comment: "Atmosphere is good. Many foreigners sit at the bar.", rating: 5},
+    {username: "Elizabeth R.", comment: "Vert good", rating: 4}
+  ]
+}
+{
+  "name": "KY Decoration Design Limited Company",
+  "description": "Excellent decoration",
+  "address" : "Houhai, Nanshan Qu, Shenzhen Shi, Guangdong Sheng, China, 518053",
+  "phone" : "+86 755 2657 9918",
+  "keyword": "Decoration ",
+  "category": "home service",
+  "rating": 4.5,
+  "longitude": 113.9603705,
+  "latitude": 22.5305364,
+  "images" : [
+    "http://escobares.com/wp-content/uploads/2017/03/Home-Decorating-Design-Inspiring-good-Home-Decor-Designs-Mesmerizing-Interior-Design-Ideas-Popular.jpg",
+    "http://autocraftva.com/wp-content/uploads/2017/03/Home-Design-And-Decoration-Inspiring-well-Home-Design-And-Decoration-Inspiring-Worthy-Interior-Perfect.jpg",
+    "http://hlbtlm.com/wp-content/uploads/2017/04/bedroom-design-ideas-1000-ideas-about-bedroom-designs-on-pinterest-teen-girl-rooms-style.jpg"
+  ],
+  "comments":[
+    {username: "John", comment: "Really good service", rating: 5},
+    {username: "Elizabeth R.", comment: "Awesome decoration design", rating: 4}
+  ]
+}

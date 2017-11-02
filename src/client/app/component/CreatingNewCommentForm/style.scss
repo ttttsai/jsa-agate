@@ -86,7 +86,7 @@ main.content-container {
   
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 376px) and (max-width: 425px) {
   main.content-container {
     margin: 0 1em;
     .creating-new-comment-form {

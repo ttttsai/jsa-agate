@@ -106,3 +106,33 @@ $card-width: calc(100% / 3 - 20px);
   text-decoration: none;
   text-transform: uppercase;
 }
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+  .single-business {
+    flex: 0 0 25%;
+    margin: 10px auto;
+  }
+}
+
+@media screen and (min-width: 376px)and (max-width: 425px){
+  .single-business {
+    flex: 0 0 40%;
+    margin: 10px auto;
+    height: 16em;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 375px){
+  .single-business {
+    flex: 0 0 90%;
+  }
+}
+
+@media screen and (max-width: 320px){
+.single-business {
+  flex: 0 0 90%;
+}
+}
+
+
+

@@ -3,6 +3,7 @@
 const responseMessage = require('./responseMessage.js');
 const express = require('express');
 const path = require('path');
+const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const DatabaseHealth = require('./database-check');
@@ -25,6 +26,7 @@ const expressJWT = require('express-jwt');
 const jwtMiddleware = expressJWT({secret: secret});
 
 app.use(bodyParser.json());
+app.use(favicon(path.join(__dirname,'public', '/favicon.ico')));
 
 function generateHash(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(saltRounds));

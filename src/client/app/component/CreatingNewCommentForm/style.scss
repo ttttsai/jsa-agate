@@ -50,6 +50,9 @@ main.content-container {
             .ant-rate-star {
               -webkit-tap-highlight-color: transparent;
             }
+            .ant-rate-star-full .ant-rate-star-second {
+              color: #ffc100;
+            }
           }
         }
         

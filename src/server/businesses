@@ -134,8 +134,8 @@
     "https://whyaminotthere.files.wordpress.com/2016/03/porterhouse.jpg?w=800"
   ],
   "comments":[
-    {username: "John", comment: "Waiters are really nice", rating: 5},
-    {username: "Elizabeth R.", comment: "Good drinks", rating: 4}
+    {username: "Zhengnan", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2611509593450_.pic_hd.jpg", comment: "Waiters are really nice", rating: 5},
+    {username: "Leo", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2651509600226_.pic.jpg", comment: "Good drinks", rating: 4}
   ]
 }
 {
@@ -154,8 +154,8 @@
     "https://media-cdn.tripadvisor.com/media/photo-s/0c/36/2b/6f/interior.jpg"
   ],
   "comments":[
-    {username: "John", comment: "Atmosphere is good. Many foreigners sit at the bar.", rating: 5},
-    {username: "Elizabeth R.", comment: "Vert good", rating: 4}
+    {username: "Zhengnan", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2611509593450_.pic_hd.jpg", comment: "Atmosphere is good. Many foreigners sit at the bar.", rating: 5},
+    {username: "Leo", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2651509600226_.pic.jpg", comment: "Vert good", rating: 4}
   ]
 }
 {
@@ -174,7 +174,7 @@
     "https://i.pinimg.com/736x/57/1c/86/571c86873767d5070b7502eaff14347c--japanese-wall-japanese-living-room-ideas.jpg"
    ],
   "comments":[
-    {username: "John", comment: "Really good service", rating: 5},
-    {username: "Elizabeth R.", comment: "Awesome decoration design", rating: 4}
+    {username: "Zhengnan", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2611509593450_.pic_hd.jpg", comment: "Really good service", rating: 5},
+    {username: "Leo", avatar: "https://s3-ap-northeast-1.amazonaws.com/epam-jsa-agate/2651509600226_.pic.jpg", comment: "Awesome decoration design", rating: 4}
   ]
 }

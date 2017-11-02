@@ -60,7 +60,7 @@
 }
 
 .search {
-  background: url('./search.png') no-repeat .2em .1em;
+  background: url('./search.png') no-repeat .2em .2em;
   background-color: #fff;
   background-size: 1.75em 1.75em;
   border-radius: 15px;
@@ -68,8 +68,12 @@
   margin: 0 0 0 3.125em;
   outline: none;
   padding: 0 0 0 1.875em;
-  width: 400px;
+  width: 200px;
   border-width: 0;
+  transition: width .8s;
+}
+.search:focus {
+  width: 400px;
 }
 
 .menu {

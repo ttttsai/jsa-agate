@@ -1,0 +1,81 @@
+$form-width: calc(100% - 2em);
+$borderStyle: 1px solid #d8d8d8;
+
+.creating-new-business-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: 12px;
+
+  p {
+    font-size: initial;
+  }
+
+  .business-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: $form-width;
+  }
+
+  input {
+    outline: 0;
+    margin-bottom: 1em;
+    font-size: 12px;
+    padding: .3em;
+    border-radius: 5px;
+    border: $borderStyle;
+  }
+
+  textarea {
+    outline: 0;
+    font-size: 12px;
+    margin-bottom: 1em;
+    border-radius: 5px;
+    border: $borderStyle;
+  }
+
+  .business-submit {
+    background: linear-gradient(#d90007, #c91400);
+    border: 1px solid #8d0005;
+    border-radius: 12px;
+    font-family: Arial;
+    color: #fff;
+    font-size: 1em;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    width: 100%;
+    outline: none;
+    margin-top: 1em;
+  }
+
+  .business-submit:hover {
+    background: #e11002;
+  }
+
+  .create-page-upload-btn {
+    background: url('./upload-icon.svg') no-repeat 38%;
+    text-align: center;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    border: $borderStyle;
+    border-radius: 5px;
+    padding: 3.6px;
+  }
+}
+
+.ant-upload.ant-upload-select {
+  display: block !important;
+  .ant-upload {
+    display: block;
+  }
+}
+
+.business-info select{
+  border-color: #d8d8d8;
+  height: 2em;
+  margin-bottom: 1em;
+  background-color: #fff;
+}

@@ -1,0 +1,9 @@
+@import '../../scss/common';
+
+.login-box {
+  @include login-signup-form-box;
+}
+
+.error-form-box {
+  @include error-form-box ;
+}

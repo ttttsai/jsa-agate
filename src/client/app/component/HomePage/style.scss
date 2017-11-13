@@ -1,0 +1,117 @@
+$map-width: 35%;
+
+
+.home-page {
+  background-color: #fff;
+  display: flex;
+  height: 100vh;
+
+  .home-page-main {
+    height: 100vh;
+    flex: 3;
+  }
+
+  .google-map-component {
+    height: 100vh;
+    flex: 2;
+  }
+}
+
+.ant-notification-notice-close-x::after {
+  content: 'Close';
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px){
+  .home-page {
+    flex-wrap: wrap;
+    .home-page-main {
+      width: 768px;
+      flex-basis: 768px;
+
+    }
+    .google-map-component {
+      display: none;
+    }
+  }
+
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+  .home-page .home-page-main {
+    flex: initial;
+    .search {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 376px) and (max-width: 425px) {
+  .home-page {
+
+    width: 100vw;
+    .home-page-main {
+      width: 100vw;
+      flex: initial;
+    }
+
+    .search {
+      width: 100px;
+      margin: 0;
+    }
+
+    .search:focus {
+      width: 200px;
+    }
+
+    .nav-container {
+      padding: 0 1em;
+      font-size: .7em;
+
+      a {
+        padding: 17.952px 2px;
+      }
+    }
+    .google-map-component {
+      display: none;
+    }
+  }
+
+}
+
+@media screen and (max-width: 375px){
+
+ .home-page {
+
+   width: 100vw;
+   .home-page-main {
+     width: 100vw;
+     flex: initial;
+   }
+
+   .search {
+     width: 70px;
+     margin: 0;
+   }
+   .search:focus {
+    width: 140px;
+   }
+   .nav-title {
+     h1 {
+      font-size: 1.5em;
+     }
+   }
+   .nav-container {
+      padding: 0 1em;
+      font-size: x-small;
+
+      a {
+        padding: 15px 5px;
+      }
+    }
+   .google-map-component {
+     display: none;
+   }
+ }
+
+}
+

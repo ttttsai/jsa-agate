@@ -1,0 +1,91 @@
+@import '../../scss/variables';
+
+.ant-dropdown-menu {
+  button {
+    border: 0;
+    padding-left: 2em;
+    outline: 0;
+    color: #898c8f;
+  }
+  .home-page-header-log-out-btn {
+    background: no-repeat left url("./sign-out-icon.svg");
+  }
+  .home-page-header-create-btn {
+    background: no-repeat left url("./create-new-business-icon.svg");
+  }
+}
+
+
+.home-page-header {
+  align-items: center;
+  color: #fff;
+  background-color: $deeperRed;
+  display: flex;
+  height: $homePageHeaderHeight;
+  justify-content: space-between;
+  padding: 0 1.5em;
+
+  .home-page-header-left {
+    align-items: center;
+    display: flex;
+
+    .menu {
+      cursor: pointer;
+    }
+  }
+
+  .home-page-header-right {
+    button:hover {
+      cursor: pointer;
+    }
+    button {
+      background: transparent;
+      border: 0;
+      color: #fff;
+      font-size: 1em;
+      outline: 0;
+      font-weight: bold;
+      padding-right: 1em;
+      display: inline-block;
+    }
+    .ant-dropdown-link {
+      background: no-repeat right/22% url("./arrow1.png");
+      width: 3em;
+    }
+  }
+
+  .header-log-btn {
+    color: #fff;
+  }
+}
+
+.search {
+  background: url('./search.png') no-repeat .2em .3em;
+  background-color: #fff;
+  background-size: 1.75em 1.75em;
+  border-radius: 15px;
+  height: 30px;
+  margin: 0 0 0 3.125em;
+  outline: none;
+  padding: 0 0 0 1.875em;
+  width: 200px;
+  border-width: 0;
+  transition: width .8s;
+}
+.search:focus {
+  width: 400px;
+}
+
+.menu {
+  background: url('./home.png') no-repeat center;
+  border: 0;
+  height: 50px;
+  width: 50px;
+}
+
+.ant-switch {
+  width: 100%;
+}
+.ant-switch-checked {
+  background-color: $deeperRed;
+}

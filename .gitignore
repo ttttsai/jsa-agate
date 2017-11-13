@@ -1,5 +1,7 @@
 .idea
 node_modules/
 dist/app
+.env
+.DS_Store
 *.log
-.application-config.json
+package-lock.json

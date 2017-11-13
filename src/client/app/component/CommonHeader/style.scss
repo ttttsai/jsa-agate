@@ -1,0 +1,19 @@
+@import '../../scss/variables';
+
+.common-header {
+  align-items: center;
+  background-color: #bd1f1f;
+  display: flex;
+  flex-flow: row nowrap;
+  height: $homePageHeaderHeight;
+  justify-content: flex-start;
+  padding: 0 1.5em;
+ 
+  .menu {
+    background: url('./home.png') no-repeat center;
+    border: 0;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+  }
+}

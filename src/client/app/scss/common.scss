@@ -1,0 +1,63 @@
+$header-height: 4.8125em;
+
+@mixin error-form-box {
+  input:not([type='submit']) {
+    background-color: #fff5f5;
+    border-bottom: 1px solid #f00;
+  }
+}
+
+@mixin login-signup-form-box {
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #e6e6e6;
+  box-shadow: -8px 31px 71px 3px #d8d8d8;
+  margin: 0 auto;
+  min-width: calc(260px - 2rem);
+  padding: 1rem;
+  text-align: center;
+
+  .ant-spin-nested-loading>div>.ant-spin {
+    position: inherit;
+  }
+
+  button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    margin-top: 1rem;
+    outline: none;
+  }
+
+  h1 {
+    font-size: x-large;
+  }
+  
+  input {
+    display: block;
+    line-height: 2rem;
+    outline: none;
+    width: 100%;
+  }
+  
+  input[type='submit'] {
+    background-color: transparent;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  input:not([type='submit']) {
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #000;
+    margin-bottom: 1rem;
+  }
+
+  .form-error-message {
+    color: #f00;
+    display: block;
+    line-height: 2rem;
+    width: 100%;
+  }
+}

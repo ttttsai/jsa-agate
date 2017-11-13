@@ -2,6 +2,10 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactHeader from './app/component/ReactHeader';
+import App from './app/component/App';
+import enUS from 'antd/lib/locale-provider/en_US';
+import LocaleProvider from 'antd/lib/locale-provider';
 
-ReactDOM.render(<ReactHeader />, document.getElementById('root'));
+ReactDOM.render(
+  <LocaleProvider locale={enUS}><App /></LocaleProvider>,
+  document.getElementById('root'));

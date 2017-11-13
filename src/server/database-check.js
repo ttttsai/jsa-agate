@@ -1,41 +1,28 @@
 'use strict';
 
 const MongoClient = require('mongodb').MongoClient;
+const dbUtility = require('./db-utility');
 
-const config = function() {
-  if (process.env.NODE_ENV !== 'production') {
-    return require('../../.application-config.json');
-  } else {
-    return {};
-  }
-}();
+function checkDatabaseHealth(callback) {
+  const url = dbUtility.createDatabaseUrl();
 
-const createDatabaseUrl = function() {
-  const address = config.database.url || process.env.MONGO_ADDRESS;
-  const port = config.database.port || process.env.MONGO_PORT;
-  const databaseName = config.database.databaseName || process.env.MONGO_DBNAME;
-  return `${address}:${port}/${databaseName}`;
-};
-
-const checkDatabaseHealth = function(callback) {
-  const url = createDatabaseUrl();
   MongoClient.connect(url, function(err, db) {
     if (err === null) {
       let collection = db.collection('heartbeat');
+
       collection.find({}).toArray(function(err, docs) {
-        if (err === null && docs.length > 0) {
-          callback(true);
-        } else {
-          callback(false);
+        const zero = 0;
+
+        if (err === null && docs.length > zero) {
+          return callback(true);
         }
+        return callback(false);
       });
     } else {
-      callback(false);
+      return callback(false);
     }
     db.close();
   });
-};
+}
 
-module.exports = {
-  checkDatabaseHealth: checkDatabaseHealth,
-};
+module.exports = {checkDatabaseHealth: checkDatabaseHealth};

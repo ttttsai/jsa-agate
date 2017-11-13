@@ -1,0 +1,26 @@
+.single-comment-container {
+  align-items: flex-start;
+  display: flex;
+  font-size: 1.1em;
+  justify-content: flex-start;
+  margin: 1em;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 1em;
+
+  .comment-details {
+    display: flex;
+    flex-direction: column;
+    margin: 0 .625em;
+    padding: 0 .625em;
+    pointer-events: none;
+
+    .comment-username {
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    .comment-content {
+      margin-top: .5em;
+    }
+  }
+}

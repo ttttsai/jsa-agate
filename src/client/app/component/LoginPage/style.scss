@@ -1,0 +1,10 @@
+.login-page {
+  height: 100vh;
+
+  .login-page-content {
+    align-items: center;
+    display: flex;
+    height: calc(100vh - 3.4em);
+    justify-content: center;
+  }
+}

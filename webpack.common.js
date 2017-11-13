@@ -3,7 +3,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'inline-source-map',  
   entry: './src/client/index.js',
   output: {
     path: path.resolve(__dirname, 'dist/app'),
@@ -15,12 +14,25 @@ module.exports = {
       test: /\.js$/,
       include: path.resolve(__dirname, 'src'),
       loader: 'babel-loader',
+      exclude: /node_modules/,
       query: {
         presets: ['react', 'env'],
       },
     },
     {
+      test: /\.css$/,
+      use: ExtractTextPlugin.extract({
+        fallback: 'style-loader',
+        use: [
+          {
+            loader: 'css-loader',
+          },
+        ],
+      }),
+    },
+    {
       test: /\.scss$/,
+      exclude: /node_modules/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [
@@ -35,7 +47,15 @@ module.exports = {
           },
         ],
       }),
-    }],
+    },
+    {
+      test: /\.(png|svg|jpg|gif)$/,
+      use: [
+        'file-loader',
+      ],
+      exclude: /node_modules/,
+    },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin([path.resolve(__dirname, './dist/app')]),
